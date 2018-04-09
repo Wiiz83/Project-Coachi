@@ -1,3 +1,3 @@
 #Coachi
 
-lol
+La vie est belle
