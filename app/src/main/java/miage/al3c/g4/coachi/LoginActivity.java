@@ -88,18 +88,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         mEmailSignInButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-                String myEmail = "BLABLA";
-                String myPassword = "BLABLA";
-                SharedPreferences sh = getApplicationContext().getSharedPreferences("mySettings", 0);
-                SharedPreferences.Editor ed = sh.edit();
-
-                ed.putString("MAIL", myEmail);
-                ed.putString("PASSWORD", myPassword);
-                ed.apply();
-
-                sh = getApplicationContext().getSharedPreferences("mySettings", 0);
-                String Mail = sh.getString("MAIL", "");
-                System.out.println(Mail);
+                saveSharedPreferences("BALBLA", "BLABLA");
                 attemptLogin();
             }
         });
@@ -360,19 +349,21 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             showProgress(false);
         }
 
-        protected void saveSharedPreferences(String myEmail, String myPassword){
-            SharedPreferences sh = getApplicationContext().getSharedPreferences("mySettings", 0);
-            SharedPreferences.Editor ed = sh.edit();
 
-            ed.putString("MAIL", myEmail);
-            ed.putString("PASSWORD", myPassword);
-            ed.apply();
+    }
 
-            sh = getApplicationContext().getSharedPreferences("mySettings", 0);
-            String Mail = sh.getString("MAIL", "");
-            System.out.println(Mail);
+    protected void saveSharedPreferences(String myEmail, String myPassword){
+        SharedPreferences sh = getApplicationContext().getSharedPreferences("mySettings", 0);
+        SharedPreferences.Editor ed = sh.edit();
 
-        }
+        ed.putString("MAIL", myEmail);
+        ed.putString("PASSWORD", myPassword);
+        ed.apply();
+
+        sh = getApplicationContext().getSharedPreferences("mySettings", 0);
+        String Mail = sh.getString("MAIL", "");
+        System.out.println(Mail);
+
     }
 }
 
