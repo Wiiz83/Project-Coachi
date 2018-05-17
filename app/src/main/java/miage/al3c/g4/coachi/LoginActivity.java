@@ -3,7 +3,9 @@ package miage.al3c.g4.coachi;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.provider.Settings;
 import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -86,6 +88,18 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         mEmailSignInButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
+                String myEmail = "BLABLA";
+                String myPassword = "BLABLA";
+                SharedPreferences sh = getApplicationContext().getSharedPreferences("mySettings", 0);
+                SharedPreferences.Editor ed = sh.edit();
+
+                ed.putString("MAIL", myEmail);
+                ed.putString("PASSWORD", myPassword);
+                ed.apply();
+
+                sh = getApplicationContext().getSharedPreferences("mySettings", 0);
+                String Mail = sh.getString("MAIL", "");
+                System.out.println(Mail);
                 attemptLogin();
             }
         });
@@ -344,6 +358,20 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         protected void onCancelled() {
             mAuthTask = null;
             showProgress(false);
+        }
+
+        protected void saveSharedPreferences(String myEmail, String myPassword){
+            SharedPreferences sh = getApplicationContext().getSharedPreferences("mySettings", 0);
+            SharedPreferences.Editor ed = sh.edit();
+
+            ed.putString("MAIL", myEmail);
+            ed.putString("PASSWORD", myPassword);
+            ed.apply();
+
+            sh = getApplicationContext().getSharedPreferences("mySettings", 0);
+            String Mail = sh.getString("MAIL", "");
+            System.out.println(Mail);
+
         }
     }
 }
