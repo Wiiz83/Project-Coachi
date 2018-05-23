@@ -4,6 +4,7 @@ import java.util.Dictionary;
 
 import miage.al3c.g4.coachi.Enum.Boisson;
 import miage.al3c.g4.coachi.Enum.Nourriture;
+import miage.al3c.g4.coachi.Utilitaire.Badge;
 
 public class Inventaire {
     private int PoidsTotal;
@@ -52,6 +53,14 @@ public class Inventaire {
 
     public void toAdd(String ident, int toAdd){
         this.stock.put(ident, (int)this.stock.get(ident) + toAdd);
+    }
+
+    public void badgeAcquired(String nomBadge){
+        this.stock.put(nomBadge, 1);
+    }
+
+    public void revokeBadge(String nomBadge){
+        this.stock.remove(nomBadge);
     }
 
 }
