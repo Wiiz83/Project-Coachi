@@ -63,4 +63,20 @@ public class Inventaire {
         this.stock.remove(nomBadge);
     }
 
+    public void addAccessory(String nomUtilitaire, int toAdd){
+        this.stock.put(nomUtilitaire, (int)this.stock.get(nomUtilitaire) + toAdd);
+    }
+
+    public void useAccessory(String nomUtilitaire, int toRemove){
+        this.stock.put(nomUtilitaire, (int)this.stock.get(nomUtilitaire) - toRemove);
+    }
+
+    public void addMedicament(String nomMedoc, int toAdd){
+        this.stock.put(nomMedoc, (int)this.stock.get(nomMedoc) + toAdd);
+    }
+
+    public void useMedicament(String nomMedoc, int toRemove){
+        this.stock.put(nomMedoc, (int)this.stock.get(nomMedoc) - toRemove);
+    }
+
 }

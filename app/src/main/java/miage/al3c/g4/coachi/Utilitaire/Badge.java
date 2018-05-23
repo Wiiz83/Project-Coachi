@@ -1,8 +1,11 @@
 package miage.al3c.g4.coachi.Utilitaire;
 
+import android.graphics.Bitmap;
+
 public class Badge {
     private String nomBadge;
     private int idBadge;
+    private Bitmap asp;
 
     public String getNomBadge() {
         return nomBadge;
@@ -20,5 +23,11 @@ public class Badge {
         this.idBadge = idBadge;
     }
 
+    public Bitmap getAsp() {
+        return asp;
+    }
 
+    public void setAsp(Bitmap asp) {
+        this.asp = asp;
+    }
 }
