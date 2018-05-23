@@ -2,6 +2,9 @@ package miage.al3c.g4.coachi.Utilitaire;
 
 import java.util.ArrayList;
 
+import miage.al3c.g4.coachi.Enum.Caractere;
+import miage.al3c.g4.coachi.Enum.Poil;
+
 public class RaceChien {
 
     private String nomRace;
