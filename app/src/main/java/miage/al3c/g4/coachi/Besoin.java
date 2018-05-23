@@ -20,6 +20,5 @@ public class Besoin {
         this.timeBeforeProblems = timeBeforeProblems;
     }
 
-    
 
 }

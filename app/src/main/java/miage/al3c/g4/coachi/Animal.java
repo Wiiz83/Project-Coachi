@@ -4,6 +4,7 @@ import miage.al3c.g4.coachi.Enum.Boisson;
 import miage.al3c.g4.coachi.Enum.Entrainement;
 import miage.al3c.g4.coachi.Enum.Jeu;
 import miage.al3c.g4.coachi.Enum.Nourriture;
+import miage.al3c.g4.coachi.Utilitaire.Maladie;
 
 abstract class Animal {
 
@@ -13,6 +14,7 @@ abstract class Animal {
     private Long poids;
     private String sante;
     private String hygiene;
+    private Maladie maladie;
 
     public Animal(String nom, Long age, Long taille, Long poids, String sante, String hygiene) {
         this.nom = nom;
@@ -21,6 +23,7 @@ abstract class Animal {
         this.poids = poids;
         this.sante = sante;
         this.hygiene = hygiene;
+        this.maladie = null;
     }
 
     public String getNom() {
@@ -69,6 +72,14 @@ abstract class Animal {
 
     public void setHygiene(String hygiene) {
         this.hygiene = hygiene;
+    }
+
+    public Maladie getMaladie() {
+        return maladie;
+    }
+
+    public void setMaladie(Maladie maladie) {
+        this.maladie = maladie;
     }
 
     abstract void caresser();
