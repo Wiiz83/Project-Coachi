@@ -16,12 +16,7 @@ public class UnityPlayerActivity extends Activity
 {
     protected UnityPlayer mUnityPlayer; // don't change the name of this variable; referenced from native code
 
-    private void goToBed2(){
-        UnityPlayer.UnitySendMessage("husky","goToBed2","");
-    }
-    private void goToCenter(){
-        UnityPlayer.UnitySendMessage("husky","goToCenter","");
-    }
+
 
     private boolean where = false;
 
@@ -36,16 +31,18 @@ public class UnityPlayerActivity extends Activity
         mUnityPlayer.requestFocus();
 
         // aller-retours
-        new CountDownTimer(9999999, 10000) {
+        final CountDownTimer start = new CountDownTimer(9999999, 10000) {
+            ControlleurChien3D chien3d = new ControlleurChien3D();
+
             public void onTick(long millisUntilFinished) {
-                where=!where;
-               if(where){
-                   goToCenter();
-               }
-               else {
-                   goToBed2();
-               }
+                where = !where;
+                if (where) {
+                    chien3d.goToCenter();
+                } else {
+                    chien3d.goToBed2();
+                }
             }
+
             public void onFinish() {
             }
         }.start();
