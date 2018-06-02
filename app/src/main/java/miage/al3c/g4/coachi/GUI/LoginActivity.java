@@ -1,11 +1,10 @@
-package miage.al3c.g4.coachi;
+package miage.al3c.g4.coachi.GUI;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
-import android.provider.Settings;
 import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -33,6 +32,8 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import miage.al3c.g4.coachi.R;
 
 import static android.Manifest.permission.READ_CONTACTS;
 

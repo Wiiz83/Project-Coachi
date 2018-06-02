@@ -2,7 +2,6 @@ package miage.al3c.g4.coachi;
 
 import java.util.ArrayList;
 
-import miage.al3c.g4.coachi.Utilitaire.Ami;
 import miage.al3c.g4.coachi.Utilitaire.Badge;
 import miage.al3c.g4.coachi.Utilitaire.Habitude;
 import miage.al3c.g4.coachi.Utilitaire.TestPersonalitee;
@@ -14,18 +13,16 @@ public class Utilisateur {
     private Long age;
     private String sexe;
     private ArrayList<Habitude> habitudes;
-    private ArrayList<Ami> amis;
     private TestPersonalitee testPersonalite;
     private ArrayList<Badge> badges;
     private ArrayList<Animal> animaux;
 
-    public Utilisateur(String prenom, String nom, Long age, String sexe, ArrayList habitudes, ArrayList amis, TestPersonalitee testPersonalite, ArrayList badges) {
+    public Utilisateur(String prenom, String nom, Long age, String sexe, ArrayList habitudes, TestPersonalitee testPersonalite, ArrayList badges) {
         this.prenom = prenom;
         this.nom = nom;
         this.age = age;
         this.sexe = sexe;
         this.habitudes = habitudes;
-        this.amis = amis;
         this.testPersonalite = testPersonalite;
         this.badges = badges;
     }
@@ -72,18 +69,6 @@ public class Utilisateur {
 
     public void addHabitude(Habitude habitude) {
         this.habitudes.add(habitude);
-    }
-
-    public ArrayList getAmis() {
-        return amis;
-    }
-
-    public void setAmis(ArrayList amis) {
-        this.amis = amis;
-    }
-
-    public void addAmi(Ami ami) {
-        this.amis.add(ami);
     }
 
     public TestPersonalitee getTestPersonalite() {
