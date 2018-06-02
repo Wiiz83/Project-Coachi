@@ -171,8 +171,6 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         String email = mEmailView.getText().toString();
         String password = mPasswordView.getText().toString();
 
-        Log.d("TESTGUI", "email : " + email + " password : " + password);
-
         boolean cancel = false;
         View focusView = null;
 
@@ -197,13 +195,11 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         if (cancel) {
             // There was an error; don't attempt login and focus the first
             // form field with an error.
-            Log.d("TESTGUI", "cancel");
             focusView.requestFocus();
         } else {
             // Show a progress spinner, and kick off a background task to
             // perform the user login attempt.
 
-            Log.d("TESTGUI", "Good !");
             showProgress(true);
             mAuthTask = new UserLoginTask(email, password);
             mAuthTask.execute((Void) null);
@@ -345,7 +341,6 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 
             // TODO: register the new account here.
 
-            Log.d("TESTGUI", "REGISTER HERE");
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(LoginActivity.this);
             SharedPreferences.Editor ed = prefs.edit();
             ed.putString(KEY_USERNAME, mEmail);
@@ -360,10 +355,9 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             showProgress(false);
 
             if (success){
-                Log.d("TESTGUI", "Well DONE");
-                Intent goToMain;
-                goToMain = new Intent(LoginActivity.this, ScrollingActivity.class);
-                startActivity(goToMain);
+                Intent goToScrolling;
+                goToScrolling = new Intent(LoginActivity.this, ScrollingActivity.class);
+                startActivity(goToScrolling);
                 finish();
             } else {
                 mPasswordView.setError(getString(R.string.error_incorrect_password));
