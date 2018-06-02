@@ -22,7 +22,6 @@ import android.os.Build;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -43,7 +42,7 @@ import static android.Manifest.permission.READ_CONTACTS;
 /**
  * A login screen that offers login via email/password.
  */
-public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<Cursor> {
+public class Login extends AppCompatActivity implements LoaderCallbacks<Cursor> {
 
     /**
      * Id to identity READ_CONTACTS permission request.
@@ -289,7 +288,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     private void addEmailsToAutoComplete(List<String> emailAddressCollection) {
         //Create adapter to tell the AutoCompleteTextView what to show in its dropdown list.
         ArrayAdapter<String> adapter =
-                new ArrayAdapter<>(LoginActivity.this,
+                new ArrayAdapter<>(Login.this,
                         android.R.layout.simple_dropdown_item_1line, emailAddressCollection);
 
         mEmailView.setAdapter(adapter);
@@ -341,7 +340,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 
             // TODO: register the new account here.
 
-            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(LoginActivity.this);
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(Login.this);
             SharedPreferences.Editor ed = prefs.edit();
             ed.putString(KEY_USERNAME, mEmail);
             ed.putString(KEY_PASSWORD, mPassword);
@@ -356,8 +355,10 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 
             if (success){
                 Intent goToScrolling;
-                goToScrolling = new Intent(LoginActivity.this, ScrollingActivity.class);
-                startActivity(goToScrolling);
+                goToScrolling = new Intent(Login.this, Scrolling.class);
+                Intent goToNouvelAnimal;
+                goToNouvelAnimal = new Intent(Login.this, NouvelAnimal.class);
+                startActivity(goToNouvelAnimal);
                 finish();
             } else {
                 mPasswordView.setError(getString(R.string.error_incorrect_password));

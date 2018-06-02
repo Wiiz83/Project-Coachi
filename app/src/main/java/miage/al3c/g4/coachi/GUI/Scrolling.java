@@ -9,9 +9,9 @@ import android.view.View;
 
 import miage.al3c.g4.coachi.R;
 
-public class ScrollingActivity extends AppCompatActivity {
+public class Scrolling extends AppCompatActivity {
 
-    public ScrollingActivity() {
+    public Scrolling() {
     }
 
     @Override

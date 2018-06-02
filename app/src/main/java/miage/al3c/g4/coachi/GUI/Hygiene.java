@@ -9,9 +9,9 @@ import android.view.View;
 
 import miage.al3c.g4.coachi.R;
 
-public class HygieneActivity extends AppCompatActivity {
+public class Hygiene extends AppCompatActivity {
 
-    public HygieneActivity() {
+    public Hygiene() {
     }
 
     @Override
