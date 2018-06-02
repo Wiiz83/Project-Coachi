@@ -9,15 +9,15 @@ import android.view.View;
 
 import miage.al3c.g4.coachi.R;
 
-public class MainActivity extends AppCompatActivity {
+public class ScrollingActivity extends AppCompatActivity {
 
-    public MainActivity() {
+    public ScrollingActivity() {
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_scrolling);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -30,10 +30,4 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-
-
-
-
-
-
 }
