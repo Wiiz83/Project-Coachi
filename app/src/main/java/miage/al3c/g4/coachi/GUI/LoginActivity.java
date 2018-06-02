@@ -103,8 +103,8 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         mProgressView = findViewById(R.id.login_progress);
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-        String username = prefs.getString(KEY_USERNAME, "email@domaine.fr");
-        String password = prefs.getString(KEY_PASSWORD, "test");
+        String username = prefs.getString(KEY_USERNAME, "");
+        String password = prefs.getString(KEY_PASSWORD, "");
         mEmailView.setText(username);
         mPasswordView.setText(password);
     }
