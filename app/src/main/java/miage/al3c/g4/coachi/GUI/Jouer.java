@@ -10,16 +10,16 @@ import android.view.View;
 
 import miage.al3c.g4.coachi.R;
 
-public class Animal extends AppCompatActivity {
+public class Jouer extends AppCompatActivity {
 
-    public Animal() {
+    public Jouer() {
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Log.d("TESTGUI", "onCreate Animal");
-        setContentView(R.layout.activity_animal);
+        Log.d("TESTGUI", "onCreate Jouer");
+        setContentView(R.layout.activity_jouer);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
     }

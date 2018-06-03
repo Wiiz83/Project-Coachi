@@ -45,7 +45,7 @@ import static android.Manifest.permission.READ_CONTACTS;
 /**
  * A login screen that offers login via email/password.
  */
-public class Login extends AppCompatActivity implements LoaderCallbacks<Cursor> {
+public class Connexion extends AppCompatActivity implements LoaderCallbacks<Cursor> {
 
     static final String KEY_USERNAME = "username";
     static final String KEY_PASSWORD = "password";
@@ -79,6 +79,7 @@ public class Login extends AppCompatActivity implements LoaderCallbacks<Cursor> 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Log.d("TESTGUI", "onCreate Connexion");
         setContentView(R.layout.activity_connexion);
         // Set up the login form.
         mEmailView = (AutoCompleteTextView) findViewById(R.id.email);
@@ -302,7 +303,7 @@ public class Login extends AppCompatActivity implements LoaderCallbacks<Cursor> 
     private void addEmailsToAutoComplete(List<String> emailAddressCollection) {
         //Create adapter to tell the AutoCompleteTextView what to show in its dropdown list.
         ArrayAdapter<String> adapter =
-                new ArrayAdapter<>(Login.this,
+                new ArrayAdapter<>(Connexion.this,
                         android.R.layout.simple_dropdown_item_1line, emailAddressCollection);
 
         mEmailView.setAdapter(adapter);
@@ -352,21 +353,18 @@ public class Login extends AppCompatActivity implements LoaderCallbacks<Cursor> 
                 }
             }
 
-            Log.d("TESTGUI", "Test user");
             boolean nouvelUtilisateur = true;
 
             if (utilisateurs != null && !utilisateurs.isEmpty()) {
                 for (Utilisateur user : utilisateurs) {
-                    Log.d("TESTGUI", "email : " + user.getEmail() + " pwd : " + user.getPwd());
-                    Log.d("TESTGUI", "" + (user.getEmail().equals(mEmail)));
                     if (user.getEmail().equals(mEmail)) {
                         utilisateur = user;
                         nouvelUtilisateur = false;
-                        //break;
+                        break;
                     }
                 }
             }
-            Log.d("TESTGUI", "nouvelUtilisateur : " + nouvelUtilisateur);
+
             // TODO: register the new account here.
             if (nouvelUtilisateur) {
                 utilisateur = new Utilisateur(mEmail, mPassword);
@@ -392,14 +390,14 @@ public class Login extends AppCompatActivity implements LoaderCallbacks<Cursor> 
             if (success) {
                 if (utilisateur.getAnimal() != null) {
                     /*Intent goToNAnimal;
-                    goToNAnimal = new Intent(Login.this, Animal.class);
+                    goToNAnimal = new Intent(Connexion.this, Animal.class);
                     startActivity(goToNAnimal);*/
                     Intent goToNouvelAnimal;
-                    goToNouvelAnimal = new Intent(Login.this, NouvelAnimal.class);
+                    goToNouvelAnimal = new Intent(Connexion.this, NouvelAnimal.class);
                     startActivity(goToNouvelAnimal);
                 } else {
                     Intent goToNouvelAnimal;
-                    goToNouvelAnimal = new Intent(Login.this, NouvelAnimal.class);
+                    goToNouvelAnimal = new Intent(Connexion.this, NouvelAnimal.class);
                     startActivity(goToNouvelAnimal);
                 }
                 finish();
