@@ -3,25 +3,24 @@ package miage.al3c.g4.coachi.GUI;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
+import android.app.LoaderManager.LoaderCallbacks;
+import android.content.CursorLoader;
 import android.content.Intent;
+import android.content.Loader;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
-import android.preference.PreferenceManager;
-import android.support.annotation.NonNull;
-import android.support.design.widget.Snackbar;
-import android.support.v7.app.AppCompatActivity;
-import android.app.LoaderManager.LoaderCallbacks;
-
-import android.content.CursorLoader;
-import android.content.Loader;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.AsyncTask;
-
 import android.os.Build;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.provider.ContactsContract;
+import android.support.annotation.NonNull;
+import android.support.design.widget.Snackbar;
+import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -32,10 +31,14 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
 import java.util.ArrayList;
 import java.util.List;
 
 import miage.al3c.g4.coachi.R;
+import miage.al3c.g4.coachi.Utilisateur;
 
 import static android.Manifest.permission.READ_CONTACTS;
 
@@ -44,11 +47,12 @@ import static android.Manifest.permission.READ_CONTACTS;
  */
 public class Login extends AppCompatActivity implements LoaderCallbacks<Cursor> {
 
+    static final String KEY_USERNAME = "username";
+    static final String KEY_PASSWORD = "password";
     /**
      * Id to identity READ_CONTACTS permission request.
      */
     private static final int REQUEST_READ_CONTACTS = 0;
-
     /**
      * A dummy authentication store containing known user names and passwords.
      * TODO: remove after connecting to a real authentication system.
@@ -60,20 +64,22 @@ public class Login extends AppCompatActivity implements LoaderCallbacks<Cursor> 
      * Keep track of the login task to ensure we can cancel it if requested.
      */
     private UserLoginTask mAuthTask = null;
-
     // UI references.
     private AutoCompleteTextView mEmailView;
     private EditText mPasswordView;
     private View mProgressView;
     private View mLoginFormView;
+    private Utilisateur utilisateur;
+    private ArrayList<Utilisateur> utilisateurs;
 
-    static final String KEY_USERNAME = "username";
-    static final String KEY_PASSWORD = "password";
+    private SharedPreferences myPrefs;
+    private SharedPreferences.Editor myPrefsEditor;
+    private Gson gson = new Gson();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.activity_connexion);
         // Set up the login form.
         mEmailView = (AutoCompleteTextView) findViewById(R.id.email);
         populateAutoComplete();
@@ -101,9 +107,17 @@ public class Login extends AppCompatActivity implements LoaderCallbacks<Cursor> 
         mLoginFormView = findViewById(R.id.login_form);
         mProgressView = findViewById(R.id.login_progress);
 
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-        String username = prefs.getString(KEY_USERNAME, "");
-        String password = prefs.getString(KEY_PASSWORD, "");
+        myPrefs = PreferenceManager.getDefaultSharedPreferences(this);
+        myPrefsEditor = myPrefs.edit();
+
+        String username = myPrefs.getString(KEY_USERNAME, "");
+        String password = myPrefs.getString(KEY_PASSWORD, "");
+        String json = myPrefs.getString("Utilisateurs", "");
+        utilisateurs = gson.fromJson(json, new TypeToken<ArrayList<Utilisateur>>() {
+        }.getType());
+        if (utilisateurs == null)
+            utilisateurs = new ArrayList<>();
+
         mEmailView.setText(username);
         mPasswordView.setText(password);
     }
@@ -338,13 +352,35 @@ public class Login extends AppCompatActivity implements LoaderCallbacks<Cursor> 
                 }
             }
 
-            // TODO: register the new account here.
+            Log.d("TESTGUI", "Test user");
+            boolean nouvelUtilisateur = true;
 
-            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(Login.this);
-            SharedPreferences.Editor ed = prefs.edit();
-            ed.putString(KEY_USERNAME, mEmail);
-            ed.putString(KEY_PASSWORD, mPassword);
-            ed.commit();
+            if (utilisateurs != null && !utilisateurs.isEmpty()) {
+                for (Utilisateur user : utilisateurs) {
+                    Log.d("TESTGUI", "email : " + user.getEmail() + " pwd : " + user.getPwd());
+                    Log.d("TESTGUI", "" + (user.getEmail().equals(mEmail)));
+                    if (user.getEmail().equals(mEmail)) {
+                        utilisateur = user;
+                        nouvelUtilisateur = false;
+                        //break;
+                    }
+                }
+            }
+            Log.d("TESTGUI", "nouvelUtilisateur : " + nouvelUtilisateur);
+            // TODO: register the new account here.
+            if (nouvelUtilisateur) {
+                utilisateur = new Utilisateur(mEmail, mPassword);
+                utilisateurs.add(utilisateur);
+
+                String json = gson.toJson(utilisateurs);
+                myPrefsEditor.putString("Utilisateurs", json);
+                myPrefsEditor.commit();
+            }
+
+
+            myPrefsEditor.putString(KEY_USERNAME, mEmail);
+            myPrefsEditor.putString(KEY_PASSWORD, mPassword);
+            myPrefsEditor.commit();
             return true;
         }
 
@@ -353,12 +389,19 @@ public class Login extends AppCompatActivity implements LoaderCallbacks<Cursor> 
             mAuthTask = null;
             showProgress(false);
 
-            if (success){
-                Intent goToScrolling;
-                goToScrolling = new Intent(Login.this, Scrolling.class);
-                Intent goToNouvelAnimal;
-                goToNouvelAnimal = new Intent(Login.this, NouvelAnimal.class);
-                startActivity(goToNouvelAnimal);
+            if (success) {
+                if (utilisateur.getAnimal() != null) {
+                    /*Intent goToNAnimal;
+                    goToNAnimal = new Intent(Login.this, Animal.class);
+                    startActivity(goToNAnimal);*/
+                    Intent goToNouvelAnimal;
+                    goToNouvelAnimal = new Intent(Login.this, NouvelAnimal.class);
+                    startActivity(goToNouvelAnimal);
+                } else {
+                    Intent goToNouvelAnimal;
+                    goToNouvelAnimal = new Intent(Login.this, NouvelAnimal.class);
+                    startActivity(goToNouvelAnimal);
+                }
                 finish();
             } else {
                 mPasswordView.setError(getString(R.string.error_incorrect_password));

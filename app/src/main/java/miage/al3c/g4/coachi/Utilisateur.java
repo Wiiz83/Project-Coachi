@@ -8,6 +8,8 @@ import miage.al3c.g4.coachi.Utilitaire.TestPersonalitee;
 
 public class Utilisateur {
 
+    private String email;
+    private String pwd;
     private String prenom;
     private String nom;
     private Long age;
@@ -15,16 +17,27 @@ public class Utilisateur {
     private ArrayList<Habitude> habitudes;
     private TestPersonalitee testPersonalite;
     private ArrayList<Badge> badges;
-    private ArrayList<Animal> animaux;
+    private Animal animal;
 
-    public Utilisateur(String prenom, String nom, Long age, String sexe, ArrayList habitudes, TestPersonalitee testPersonalite, ArrayList badges) {
-        this.prenom = prenom;
-        this.nom = nom;
-        this.age = age;
-        this.sexe = sexe;
-        this.habitudes = habitudes;
-        this.testPersonalite = testPersonalite;
-        this.badges = badges;
+    public Utilisateur(String email, String pwd) {
+        this.email = email;
+        this.pwd = pwd;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPwd() {
+        return pwd;
+    }
+
+    public void setPwd(String pwd) {
+        this.pwd = pwd;
     }
 
     public String getPrenom() {
@@ -63,7 +76,7 @@ public class Utilisateur {
         return habitudes;
     }
 
-    public void setHabitudes(ArrayList habitudes) {
+    public void setHabitudes(ArrayList<Habitude> habitudes) {
         this.habitudes = habitudes;
     }
 
@@ -83,7 +96,7 @@ public class Utilisateur {
         return badges;
     }
 
-    public void setBadges(ArrayList badges) {
+    public void setBadges(ArrayList<Badge> badges) {
         this.badges = badges;
     }
 
@@ -91,15 +104,11 @@ public class Utilisateur {
         this.badges.add(badge);
     }
 
-    public ArrayList<Animal> getAnimaux() {
-        return animaux;
+    public Animal getAnimal() {
+        return animal;
     }
 
-    public void setAnimaux(ArrayList<Animal> animaux) {
-        this.animaux = animaux;
-    }
-
-    public void addAnimal(Animal animal) {
-        this.animaux.add(animal);
+    public void setAnimal(Animal animal) {
+        this.animal = animal;
     }
 }

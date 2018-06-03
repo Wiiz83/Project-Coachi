@@ -5,8 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".GUI.Shop"
-    tools:showIn="@layout/activity_shop">
+    tools:context=".GUI.Boutique"
+    tools:showIn="@layout/activity_boutique">
 
     <android.support.constraint.Guideline
         android:id="@+id/guideline"

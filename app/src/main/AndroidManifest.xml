@@ -29,16 +29,16 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".GUI.Scrolling"
-            android:label="@string/title_activity_scrolling"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
             android:name=".GUI.NouvelAnimal"
             android:label="@string/title_activity_nouvel_animal"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".GUI.Shop"
+            android:name=".GUI.Boutique"
             android:label="@string/title_activity_shop"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".GUI.Animal"
+            android:label="@string/title_activity_animal"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
