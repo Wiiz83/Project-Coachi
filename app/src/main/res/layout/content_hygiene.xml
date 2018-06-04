@@ -16,10 +16,10 @@
         android:layout_height="36dp"
         android:background="@android:color/holo_blue_dark"
         android:text="Je vais laver ses dents"
-        android:textColor="@android:color/white"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
-        tools:layout_editor_absoluteX="79dp"
-        tools:layout_editor_absoluteY="122dp" />
+        android:textColor="@android:color/white"
+        tools:layout_editor_absoluteX="108dp"
+        tools:layout_editor_absoluteY="158dp" />
 
     <Button
         android:id="@+id/bLy"
@@ -27,10 +27,10 @@
         android:layout_height="36dp"
         android:background="@android:color/holo_blue_dark"
         android:text="Je vais lavez ses yeux"
-        android:textColor="@android:color/white"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
-        tools:layout_editor_absoluteX="79dp"
-        tools:layout_editor_absoluteY="86dp" />
+        android:textColor="@android:color/white"
+        tools:layout_editor_absoluteX="108dp"
+        tools:layout_editor_absoluteY="122dp" />
 
     <Button
         android:id="@+id/bLp"
@@ -38,10 +38,10 @@
         android:layout_height="36dp"
         android:background="@android:color/holo_blue_dark"
         android:text="Je vais laver ses poils"
-        android:textColor="@android:color/white"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
-        tools:layout_editor_absoluteX="79dp"
-        tools:layout_editor_absoluteY="286dp" />
+        android:textColor="@android:color/white"
+        tools:layout_editor_absoluteX="108dp"
+        tools:layout_editor_absoluteY="341dp" />
 
     <Button
         android:id="@+id/bS"
@@ -49,10 +49,10 @@
         android:layout_height="36dp"
         android:background="@android:color/holo_blue_dark"
         android:text="Je vais le sécher"
-        android:textColor="@android:color/white"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
-        tools:layout_editor_absoluteX="79dp"
-        tools:layout_editor_absoluteY="322dp" />
+        android:textColor="@android:color/white"
+        tools:layout_editor_absoluteX="108dp"
+        tools:layout_editor_absoluteY="377dp" />
 
     <Button
         android:id="@+id/bb"
@@ -60,10 +60,10 @@
         android:layout_height="36dp"
         android:background="@android:color/holo_blue_dark"
         android:text="Je vais le brosser"
-        android:textColor="@android:color/white"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
-        tools:layout_editor_absoluteX="79dp"
-        tools:layout_editor_absoluteY="252dp" />
+        android:textColor="@android:color/white"
+        tools:layout_editor_absoluteX="108dp"
+        tools:layout_editor_absoluteY="307dp" />
 
     <Button
         android:id="@+id/bOr"
@@ -71,9 +71,9 @@
         android:layout_height="36dp"
         android:background="@android:color/holo_blue_dark"
         android:text="Je vais laver ses oreilles"
-        android:textColor="@android:color/white"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
-        tools:layout_editor_absoluteX="79dp"
-        tools:layout_editor_absoluteY="50dp" />
+        android:textColor="@android:color/white"
+        tools:layout_editor_absoluteX="108dp"
+        tools:layout_editor_absoluteY="86dp" />
 
 </android.support.constraint.ConstraintLayout>

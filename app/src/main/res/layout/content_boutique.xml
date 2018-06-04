@@ -8,14 +8,105 @@
     tools:context=".GUI.Boutique"
     tools:showIn="@layout/activity_boutique">
 
-    <android.support.constraint.Guideline
-        android:id="@+id/guideline"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <android.support.constraint.Guideline
-        android:id="@+id/guideline2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginTop="75dp">
+
+            <ImageButton
+                android:id="@+id/imageButton"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                app:srcCompat="@android:color/darker_gray" />
+
+            <Button
+                android:id="@+id/bt_pate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Pâtés" />
+
+            <Button
+                android:id="@+id/bt_friandises"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Friandises" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="100dp">
+
+            <ImageButton
+                android:id="@+id/imageButton2"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                app:srcCompat="@android:color/darker_gray" />
+
+            <Button
+                android:id="@+id/bt_laisseCollar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Laisses et colliers" />
+
+            <Button
+                android:id="@+id/bt_prodBros"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Produits et brosses" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="100dp">
+
+            <ImageButton
+                android:id="@+id/imageButton3"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                app:srcCompat="@android:color/darker_gray" />
+
+            <Button
+                android:id="@+id/bt_med2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="med2" />
+
+            <Button
+                android:id="@+id/bt_med3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="med3" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="100dp">
+
+            <ImageButton
+                android:id="@+id/imageButton4"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                app:srcCompat="@android:color/darker_gray" />
+
+            <Button
+                android:id="@+id/button4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Button" />
+
+            <Button
+                android:id="@+id/button11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Button" />
+        </TableRow>
+    </TableLayout>
 
 </FrameLayout>
