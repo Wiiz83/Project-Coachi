@@ -1,1 +1,2 @@
-include ':app'
+include ':app', ':Coachi3Dimported'
+project(':Coachi3Dimported').projectDir = new File('Coachi3D/Coachi3D')

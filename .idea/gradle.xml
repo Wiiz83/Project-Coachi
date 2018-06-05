@@ -8,6 +8,7 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/Coachi3D/Coachi3D" />
             <option value="$PROJECT_DIR$/app" />
           </set>
         </option>

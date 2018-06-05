@@ -46,6 +46,8 @@ public class NouvelAnimal extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         Log.d("TESTGUI", "onCreate NouvelAnimal");
         setContentView(R.layout.activity_nouvel_animal);
+        com.Coachi.Coachi3D.UnityPlayerActivity act = new com.Coachi.Coachi3D.UnityPlayerActivity();
+        com.Coachi.Coachi3D.ControlleurChien3D ctrl = new com.Coachi.Coachi3D.ControlleurChien3D();
 
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
