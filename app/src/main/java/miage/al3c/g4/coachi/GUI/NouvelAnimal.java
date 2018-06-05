@@ -1,6 +1,7 @@
 package miage.al3c.g4.coachi.GUI;
 
-import android.support.design.widget.CoordinatorLayout;
+import android.content.Context;
+import android.support.constraint.ConstraintLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -17,14 +18,18 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-
+import android.support.design.widget.CoordinatorLayout;
+import android.view.Window;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
+import com.Coachi.Coachi3D.ControlleurChien3D;
+
 import miage.al3c.g4.coachi.R;
-import com.Coachi.Coachi3D.*;
+
 public class NouvelAnimal extends AppCompatActivity {
 
+     private static com.Coachi.Coachi3D.UnityViewProvider unityViewProvider;
     public NouvelAnimal() {
     }
 
@@ -45,23 +50,24 @@ public class NouvelAnimal extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        unityViewProvider = new com.Coachi.Coachi3D.UnityViewProvider(this);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        ControlleurChien3D chien3d = new ControlleurChien3D();
+
         super.onCreate(savedInstanceState);
         Log.d("TESTGUI", "onCreate NouvelAnimal");
-        setContentView(R.layout.activity_nouvel_animal);
-        com.Coachi.Coachi3D.UnityViewProvider unityViewProvider = new com.Coachi.Coachi3D.UnityViewProvider(this);
-        com.Coachi.Coachi3D.ControlleurChien3D ctrl = new com.Coachi.Coachi3D.ControlleurChien3D();
-        FrameLayout layout  =  (FrameLayout) findViewById(R.id.animal3d);;
-        layout.addView(unityViewProvider.getView());
-
+        setContentView(unityViewProvider.getView());
+        unityViewProvider.requestFocus();
+        chien3d.goToBed2();
 
 
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
-        mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
+        //mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
 
         // Set up the ViewPager with the sections adapter.
-        mViewPager = (ViewPager) findViewById(R.id.container);
-        mViewPager.setAdapter(mSectionsPagerAdapter);
+      //  mViewPager = (ViewPager) findViewById(R.id.container);
+     //   mViewPager.setAdapter(mSectionsPagerAdapter);
 
     }
 
