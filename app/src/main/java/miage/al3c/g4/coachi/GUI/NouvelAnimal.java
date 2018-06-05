@@ -1,5 +1,6 @@
 package miage.al3c.g4.coachi.GUI;
 
+import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -17,10 +18,11 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
+import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import miage.al3c.g4.coachi.R;
-
+import com.Coachi.Coachi3D.*;
 public class NouvelAnimal extends AppCompatActivity {
 
     public NouvelAnimal() {
@@ -46,8 +48,12 @@ public class NouvelAnimal extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         Log.d("TESTGUI", "onCreate NouvelAnimal");
         setContentView(R.layout.activity_nouvel_animal);
-        com.Coachi.Coachi3D.UnityPlayerActivity act = new com.Coachi.Coachi3D.UnityPlayerActivity();
+        com.Coachi.Coachi3D.UnityViewProvider unityViewProvider = new com.Coachi.Coachi3D.UnityViewProvider(this);
         com.Coachi.Coachi3D.ControlleurChien3D ctrl = new com.Coachi.Coachi3D.ControlleurChien3D();
+        FrameLayout layout  =  (FrameLayout) findViewById(R.id.animal3d);;
+        layout.addView(unityViewProvider.getView());
+
+
 
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.

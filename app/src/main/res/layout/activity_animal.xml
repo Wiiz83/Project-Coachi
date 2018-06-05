@@ -20,6 +20,18 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <include layout="@layout/content_animal" />
+    <include
+        android:id="@+id/include"
+        layout="@layout/content_animal" />
+
+    <FrameLayout
+        android:id="@+id/animal3d"
+        android:layout_width="match_parent"
+        android:layout_height="302dp"
+        android:visibility="visible"
+        app:layout_anchor="@+id/include"
+        app:layout_anchorGravity="left|center">
+
+    </FrameLayout>
 
 </android.support.design.widget.CoordinatorLayout>
