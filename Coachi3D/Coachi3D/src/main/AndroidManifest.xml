@@ -7,6 +7,7 @@
         android:configChanges="mcc|mnc|locale|touchscreen|keyboard|keyboardHidden|navigation|orientation|screenLayout|uiMode|screenSize|smallestScreenSize|fontScale|layoutDirection|density"
         android:hardwareAccelerated="false"
         android:name="com.Coachi.Coachi3D.UnityPlayerActivity"
+        android:process=":UnityKillsMe"
         android:theme="@style/UnityThemeSelector">
          <meta-data android:name="unityplayer.UnityActivity" android:value="true" />
     </activity>
