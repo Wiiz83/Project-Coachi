@@ -22,6 +22,7 @@ public class Animal extends AppCompatActivity {
         setContentView(R.layout.activity_animal);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        com.Coachi.Coachi3D.ControlleurChien3D ctrl = new com.Coachi.Coachi3D.ControlleurChien3D();
     }
 
 }
