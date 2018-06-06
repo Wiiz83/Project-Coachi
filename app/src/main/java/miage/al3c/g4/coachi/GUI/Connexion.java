@@ -31,6 +31,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.Coachi.Coachi3D.ControlleurChien3D;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.unity3d.player.UnityPlayer;
@@ -43,19 +44,7 @@ import miage.al3c.g4.coachi.Utilisateur;
 
 import static android.Manifest.permission.READ_CONTACTS;
 import android.widget.LinearLayout;
-import android.view.KeyEvent;
 import android.view.MotionEvent;
-import android.view.SurfaceView;
-import android.view.View;
-import android.view.View.OnClickListener;
-import android.view.ViewGroup;
-import android.view.inputmethod.EditorInfo;
-import android.widget.ArrayAdapter;
-import android.widget.AutoCompleteTextView;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.LinearLayout;
-import android.widget.TextView;
 import android.content.res.Configuration;
 
 /**
@@ -148,6 +137,8 @@ public class Connexion extends AppCompatActivity implements LoaderCallbacks<Curs
 
         mEmailView.setText(username);
         mPasswordView.setText(password);
+        ControlleurChien3D ctrl = new ControlleurChien3D();
+        ctrl.goToBed2();
     }
 
     private void populateAutoComplete() {
