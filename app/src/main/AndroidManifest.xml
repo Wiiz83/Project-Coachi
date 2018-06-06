@@ -63,6 +63,10 @@
         <activity
             android:name=".GUI.Soigner"
             android:label="@string/title_activity_soigner"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".GUI.Unity"
+            android:label="@string/title_activity_unity"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 

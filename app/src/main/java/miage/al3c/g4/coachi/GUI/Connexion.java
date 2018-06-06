@@ -33,6 +33,7 @@ import android.widget.TextView;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import com.unity3d.player.UnityPlayer;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -69,12 +70,15 @@ public class Connexion extends AppCompatActivity implements LoaderCallbacks<Curs
     private EditText mPasswordView;
     private View mProgressView;
     private View mLoginFormView;
+    private View viewToDo;
     private Utilisateur utilisateur;
     private ArrayList<Utilisateur> utilisateurs;
 
     private SharedPreferences myPrefs;
     private SharedPreferences.Editor myPrefsEditor;
     private Gson gson = new Gson();
+    UnityPlayer mUnityPlayer;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -83,6 +87,12 @@ public class Connexion extends AppCompatActivity implements LoaderCallbacks<Curs
         setContentView(R.layout.activity_connexion);
         // Set up the login form.
         mEmailView = (AutoCompleteTextView) findViewById(R.id.email);
+        viewToDo = (View) findViewById(R.id.viewToDo);
+        UnityPlayer mUnityPlayer;
+        mUnityPlayer = new UnityPlayer(this);
+        // mettre le player dans cette viewToDo! 
+
+
         populateAutoComplete();
 
         mPasswordView = (EditText) findViewById(R.id.password);

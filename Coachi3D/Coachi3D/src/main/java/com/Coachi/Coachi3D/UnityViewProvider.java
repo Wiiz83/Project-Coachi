@@ -13,14 +13,10 @@ public class UnityViewProvider {
 
     public UnityViewProvider(android.content.Context context) {
         mUnityPlayer = new UnityPlayer(context);
-        int glesMode = mUnityPlayer.getSettings().getInt("gles_mode", 1);
-        boolean trueColor8888 = false;
-        mUnityPlayer.init(glesMode, trueColor8888);
-
     }
 
     public View getView() {
-        return mUnityPlayer.getView();
+        return mUnityPlayer;
     }
 
 

@@ -26,4 +26,5 @@
     <string name="title_activity_jouer">Jouer</string>
     <string name="title_activity_sortir">Sortir</string>
     <string name="title_activity_soigner">Soigner</string>
+    <string name="title_activity_unity">Unity</string>
 </resources>
