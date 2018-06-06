@@ -29,24 +29,6 @@ public class UnityPlayerActivity extends Activity
         mUnityPlayer = new UnityPlayer(this);
         setContentView(mUnityPlayer);
         mUnityPlayer.requestFocus();
-
-        // aller-retours
-        final CountDownTimer start = new CountDownTimer(9999999, 10000) {
-            ControlleurChien3D chien3d = new ControlleurChien3D();
-
-            public void onTick(long millisUntilFinished) {
-                where = !where;
-                if (where) {
-                    chien3d.goToCenter();
-                } else {
-                    chien3d.goToBed2();
-                }
-            }
-
-            public void onFinish() {
-            }
-        }.start();
-
     }
 
     @Override protected void onNewIntent(Intent intent)

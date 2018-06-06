@@ -30,28 +30,5 @@ import com.unity3d.player.UnityPlayer;
 import miage.al3c.g4.coachi.R;
 
 public class NouvelAnimal extends com.Coachi.Coachi3D.UnityPlayerActivity {
-    private boolean where = false;
-
-    // Setup activity layout
-    @Override protected void onCreate(Bundle savedInstanceState)    {
-        super.onCreate(savedInstanceState);
-        // aller-retours
-        final CountDownTimer start = new CountDownTimer(9999999, 10000) {
-            ControlleurChien3D chien3d = new ControlleurChien3D();
-
-            public void onTick(long millisUntilFinished) {
-                where = !where;
-                if (where) {
-                    chien3d.goToCenter();
-                } else {
-                    chien3d.goToBed2();
-                }
-            }
-
-            public void onFinish() {
-            }
-        }.start();
-
-    }
 
 }
