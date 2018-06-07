@@ -124,6 +124,7 @@ public class Connexion extends AppCompatActivity implements LoaderCallbacks<Curs
         mLoginFormView = findViewById(R.id.login_form);
         mProgressView = findViewById(R.id.login_progress);
 
+        // Récupération SharedPreferences
         myPrefs = PreferenceManager.getDefaultSharedPreferences(this);
         myPrefsEditor = myPrefs.edit();
 
@@ -386,12 +387,16 @@ public class Connexion extends AppCompatActivity implements LoaderCallbacks<Curs
             // TODO: register the new account here.
             if (nouvelUtilisateur) {
                 utilisateur = new Utilisateur(mEmail, mPassword);
-                utilisateurs.add(utilisateur);
-
-                String json = gson.toJson(utilisateurs);
-                myPrefsEditor.putString("Utilisateurs", json);
-                myPrefsEditor.commit();
             }
+
+            utilisateurs.add(utilisateur);
+
+            String jsonUtilisateur = gson.toJson(utilisateur);
+            myPrefsEditor.putString("Utilisateur", jsonUtilisateur);
+            String jsonUtilisateurs = gson.toJson(utilisateurs);
+            myPrefsEditor.putString("Utilisateurs", jsonUtilisateurs);
+            myPrefsEditor.commit();
+
 
 
             myPrefsEditor.putString(KEY_USERNAME, mEmail);
@@ -407,16 +412,17 @@ public class Connexion extends AppCompatActivity implements LoaderCallbacks<Curs
 
             if (success) {
                 if (utilisateur.getAnimal() != null) {
-                    /*Intent goToNAnimal;
-                    goToNAnimal = new Intent(Connexion.this, Animal.class);
-                    startActivity(goToNAnimal);*/
-                    Intent goToNouvelAnimal;
-                    goToNouvelAnimal = new Intent(Connexion.this, NouvelAnimal.class);
-                    startActivity(goToNouvelAnimal);
+                    Intent goToNAnimal;
+                    goToNAnimal = new Intent(Connexion.this, AnimalPerso.class);
+                    startActivity(goToNAnimal);
                 } else {
-                    Intent goToNouvelAnimal;
+                    Intent goToNAnimal;
+                    goToNAnimal = new Intent(Connexion.this, AnimalPerso.class);
+                    startActivity(goToNAnimal);
+                    /*Intent goToNouvelAnimal;
                     goToNouvelAnimal = new Intent(Connexion.this, NouvelAnimal.class);
                     startActivity(goToNouvelAnimal);
+                    */
                 }
                 finish();
             } else {

@@ -6,24 +6,30 @@ import miage.al3c.g4.coachi.Enum.Jeu;
 import miage.al3c.g4.coachi.Enum.Nourriture;
 import miage.al3c.g4.coachi.Utilitaire.Maladie;
 
-abstract class Animal {
+public abstract class Animal {
 
     private String nom;
     private Long age;
     private Long taille;
     private Long poids;
+    private int energieP;
+    private int santeP;
+    private int moralP;
     private String sante;
     private String hygiene;
     private Maladie maladie;
 
-    public Animal(String nom, Long age, Long taille, Long poids, String sante, String hygiene) {
+    public Animal(String nom, Long age, Long taille, Long poids, int energieP, int santeP, int moralP, String sante, String hygiene, Maladie maladie) {
         this.nom = nom;
         this.age = age;
         this.taille = taille;
         this.poids = poids;
+        this.energieP = energieP;
+        this.santeP = santeP;
+        this.moralP = moralP;
         this.sante = sante;
         this.hygiene = hygiene;
-        this.maladie = null;
+        this.maladie = maladie;
     }
 
     public String getNom() {
@@ -56,6 +62,30 @@ abstract class Animal {
 
     public void setPoids(Long poids) {
         this.poids = poids;
+    }
+
+    public int getEnergieP() {
+        return energieP;
+    }
+
+    public void setEnergieP(int energieP) {
+        this.energieP = energieP;
+    }
+
+    public int getSanteP() {
+        return santeP;
+    }
+
+    public void setSanteP(int santeP) {
+        this.santeP = santeP;
+    }
+
+    public int getMoralP() {
+        return moralP;
+    }
+
+    public void setMoralP(int moralP) {
+        this.moralP = moralP;
     }
 
     public String getSante() {

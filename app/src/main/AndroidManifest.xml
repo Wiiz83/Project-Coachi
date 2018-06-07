@@ -16,7 +16,7 @@
         android:largeHeap="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".GUI.Hygiene"
+            android:name=".GUI.Laver"
             android:label="@string/title_activity_main"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
@@ -38,7 +38,7 @@
             android:label="@string/title_activity_boutique"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".GUI.Animal"
+            android:name=".GUI.AnimalPerso"
             android:label="@string/title_activity_animal"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
