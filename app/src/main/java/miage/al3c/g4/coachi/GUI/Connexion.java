@@ -93,7 +93,7 @@ public class Connexion extends AppCompatActivity implements LoaderCallbacks<Curs
         setContentView(R.layout.activity_connexion);
 
         // Unity
-        LinearLayout layout = (LinearLayout) findViewById(R.id.layoutConnex);
+        LinearLayout layout = (LinearLayout) findViewById(R.id.llUnityConnexion);
         LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams (LinearLayout.LayoutParams.FILL_PARENT, 600);
         layout.addView(mUnityPlayer,0,lp);
 
