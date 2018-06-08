@@ -40,6 +40,14 @@
                 android:layout_weight="1"
                 android:text="Statistiques"
                 android:textSize="7sp" />
+
+            <Button
+                android:id="@+id/btDeconnexion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Déconnexion"
+                android:textSize="7sp" />
         </LinearLayout>
 
     </android.support.design.widget.AppBarLayout>

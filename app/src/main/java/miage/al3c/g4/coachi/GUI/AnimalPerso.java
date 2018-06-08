@@ -8,6 +8,7 @@ import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.util.TypedValue;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
@@ -33,7 +34,7 @@ public class AnimalPerso extends AppCompatActivity {
 
     private Utilisateur utilisateur;
     private Animal animal;
-    Button btnBoutique, btnGuide, btnStatistiques, btnJouer, btnNourir, BtnAbreuver, BtnSoigner, BtnLaver, BtnSortir;
+    Button btnBoutique, btnGuide, btnStatistiques, btnDeconnexion, btnJouer, btnNourir, BtnAbreuver, BtnSoigner, BtnLaver, BtnSortir;
     ProgressBar pbEnergie, pbSante, pbMoral;
 
     public AnimalPerso() {
@@ -53,7 +54,8 @@ public class AnimalPerso extends AppCompatActivity {
 
         // Unity
         LinearLayout layoutUnity = (LinearLayout) findViewById(R.id.llUnity);
-        layoutUnity.addView(mUnityPlayer,0,new LinearLayout.LayoutParams (LinearLayout.LayoutParams.FILL_PARENT, 600));
+        int height = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 300, getResources().getDisplayMetrics());
+        layoutUnity.addView(mUnityPlayer,0,new LinearLayout.LayoutParams(LinearLayout.LayoutParams.FILL_PARENT, height, LinearLayout.LayoutParams.MATCH_PARENT));
 
         // Récupération SharedPreferences
         myPrefs = PreferenceManager.getDefaultSharedPreferences(this);
@@ -62,7 +64,6 @@ public class AnimalPerso extends AppCompatActivity {
         // Récupérer l'utilisateur
         String json = myPrefs.getString("Utilisateur", "");
         utilisateur = gson.fromJson(json, Utilisateur.class);
-        animal = utilisateur.getAnimal();
 
         // Récupérer l'animal
         animal = utilisateur.getAnimal();
@@ -95,6 +96,20 @@ public class AnimalPerso extends AppCompatActivity {
                 Intent goToStatistiques;
                 goToStatistiques = new Intent(AnimalPerso.this, Statistiques.class);
                 startActivity(goToStatistiques);
+            }
+        });
+
+        btnDeconnexion = findViewById(R.id.btDeconnexion);
+        btnDeconnexion.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent goToConnexion;
+                goToConnexion = new Intent(AnimalPerso.this, Connexion.class);
+                startActivity(goToConnexion);
+                finish();
+                utilisateur = null;
+                String jsonUtilisateur = gson.toJson(utilisateur);
+                myPrefsEditor.putString("Utilisateur", jsonUtilisateur);
             }
         });
 

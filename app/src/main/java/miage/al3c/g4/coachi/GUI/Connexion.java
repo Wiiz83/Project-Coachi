@@ -34,7 +34,6 @@ import android.widget.TextView;
 import com.Coachi.Coachi3D.ControlleurChien3D;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import com.unity3d.player.UnityPlayer;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -43,9 +42,6 @@ import miage.al3c.g4.coachi.R;
 import miage.al3c.g4.coachi.Utilisateur;
 
 import static android.Manifest.permission.READ_CONTACTS;
-import android.widget.LinearLayout;
-import android.view.MotionEvent;
-import android.content.res.Configuration;
 
 /**
  * A login screen that offers login via email/password.
@@ -81,21 +77,12 @@ public class Connexion extends AppCompatActivity implements LoaderCallbacks<Curs
     private SharedPreferences.Editor myPrefsEditor;
     private Gson gson = new Gson();
 
-    private UnityPlayer mUnityPlayer;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        // Unity
-        mUnityPlayer = new UnityPlayer(this);
 
         Log.d("TESTGUI", "onCreate Connexion");
         setContentView(R.layout.activity_connexion);
-
-        // Unity
-        LinearLayout layout = (LinearLayout) findViewById(R.id.llUnityConnexion);
-        LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams (LinearLayout.LayoutParams.FILL_PARENT, 600);
-        layout.addView(mUnityPlayer,0,lp);
 
         // Set up the login form.
         mEmailView = (AutoCompleteTextView) findViewById(R.id.email);
@@ -437,83 +424,5 @@ public class Connexion extends AppCompatActivity implements LoaderCallbacks<Curs
             showProgress(false);
         }
     }
-    // Quit Unity
-    @Override protected void onDestroy ()
-    {
-        mUnityPlayer.quit();
-        super.onDestroy();
-    }
-
-    // Pause Unity
-    @Override protected void onPause()
-    {
-        super.onPause();
-        mUnityPlayer.pause();
-    }
-
-    // Resume Unity
-    @Override protected void onResume()
-    {
-        super.onResume();
-        mUnityPlayer.resume();
-    }
-
-    @Override protected void onStart()
-    {
-        super.onStart();
-        mUnityPlayer.start();
-    }
-
-    @Override protected void onStop()
-    {
-        super.onStop();
-        mUnityPlayer.stop();
-    }
-
-    // Low Memory Unity
-    @Override public void onLowMemory()
-    {
-        super.onLowMemory();
-        mUnityPlayer.lowMemory();
-    }
-
-    // Trim Memory Unity
-    @Override public void onTrimMemory(int level)
-    {
-        super.onTrimMemory(level);
-        if (level == TRIM_MEMORY_RUNNING_CRITICAL)
-        {
-            mUnityPlayer.lowMemory();
-        }
-    }
-
-    // This ensures the layout will be correct.
-    @Override public void onConfigurationChanged(Configuration newConfig)
-    {
-        super.onConfigurationChanged(newConfig);
-        mUnityPlayer.configurationChanged(newConfig);
-    }
-
-    // Notify Unity of the focus change.
-    @Override public void onWindowFocusChanged(boolean hasFocus)
-    {
-        super.onWindowFocusChanged(hasFocus);
-        mUnityPlayer.windowFocusChanged(hasFocus);
-    }
-
-    // For some reason the multiple keyevent type is not supported by the ndk.
-    // Force event injection by overriding dispatchKeyEvent().
-    @Override public boolean dispatchKeyEvent(KeyEvent event)
-    {
-        if (event.getAction() == KeyEvent.ACTION_MULTIPLE)
-            return mUnityPlayer.injectEvent(event);
-        return super.dispatchKeyEvent(event);
-    }
-
-    // Pass any events not handled by (unfocused) views straight to UnityPlayer
-    @Override public boolean onKeyUp(int keyCode, KeyEvent event)     { return mUnityPlayer.injectEvent(event); }
-    @Override public boolean onKeyDown(int keyCode, KeyEvent event)   { return mUnityPlayer.injectEvent(event); }
-    @Override public boolean onTouchEvent(MotionEvent event)          { return mUnityPlayer.injectEvent(event); }
-    /*API12*/ public boolean onGenericMotionEvent(MotionEvent event)  { return mUnityPlayer.injectEvent(event); }
 }
 
