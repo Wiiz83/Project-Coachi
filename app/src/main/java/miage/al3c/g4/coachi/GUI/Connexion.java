@@ -125,8 +125,6 @@ public class Connexion extends AppCompatActivity implements LoaderCallbacks<Curs
 
         mEmailView.setText(username);
         mPasswordView.setText(password);
-        ControlleurChien3D ctrl = new ControlleurChien3D();
-        ctrl.goToBed2();
     }
 
     private void populateAutoComplete() {

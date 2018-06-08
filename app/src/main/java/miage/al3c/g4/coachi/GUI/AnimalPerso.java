@@ -202,8 +202,7 @@ public class AnimalPerso extends AppCompatActivity {
         pbMoral.setProgress(moral);
 
         ControlleurChien3D ctrl = new ControlleurChien3D();
-        ctrl.goToBed2();
-
+        ctrl.goToBowlAndEat();
     }
 
     // Quit Unity

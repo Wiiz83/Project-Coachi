@@ -6,7 +6,7 @@
     <activity android:label="@string/app_name" android:screenOrientation="fullSensor" android:launchMode="singleTask" android:configChanges="mcc|mnc|locale|touchscreen|keyboard|keyboardHidden|navigation|orientation|screenLayout|uiMode|screenSize|smallestScreenSize|fontScale|layoutDirection|density" android:hardwareAccelerated="false" android:name="com.Coachi.Coachi3D.UnityPlayerActivity">
       <meta-data android:name="unityplayer.UnityActivity" android:value="true" />
     </activity>
-    <meta-data android:name="unity.build-id" android:value="9be0b779-0c80-4d1f-84af-5f9c2753d88c" />
+    <meta-data android:name="unity.build-id" android:value="11405e84-bb12-4ccd-ac6e-8b57831c3121" />
     <meta-data android:name="unity.splash-mode" android:value="0" />
     <meta-data android:name="unity.splash-enable" android:value="True" />
   </application>
