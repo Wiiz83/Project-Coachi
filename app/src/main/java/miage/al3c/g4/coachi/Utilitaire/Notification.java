@@ -12,7 +12,7 @@ import android.support.v7.app.AppCompatActivity;
 import miage.al3c.g4.coachi.R;
 
 public class Notification extends AppCompatActivity{
-    private String id;
+    private int id; //
     private String content;
     private NotificationManagerCompat notificationManager = NotificationManagerCompat.from(this);
     private NotificationChannel nc = new NotificationChannel("channelIdCoachie",  "popupAnim", NotificationManager.IMPORTANCE_DEFAULT);
@@ -22,8 +22,8 @@ public class Notification extends AppCompatActivity{
     PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, 0);
 
 
-
-    public Notification(String id, String ct, String title){
+    //Remplis tout les champs pour les notifs
+    public Notification(int id, String ct, String title){
         setId(id);
         setContent(ct);
         mBuilder.setSmallIcon(R.drawable.ic_notifs);
@@ -34,11 +34,11 @@ public class Notification extends AppCompatActivity{
         mBuilder.setAutoCancel(true);
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -50,7 +50,8 @@ public class Notification extends AppCompatActivity{
         this.content = content;
     }
 
-    public void sendNotif(int notifId){
-        notificationManager.notify(notifId, mBuilder.build());
+    //Send la notification
+    public void sendNotif(){
+        notificationManager.notify(this.id, mBuilder.build());
     }
 }
