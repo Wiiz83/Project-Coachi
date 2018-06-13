@@ -8,4 +8,23 @@
     tools:context=".GUI.Sortir"
     tools:showIn="@layout/activity_sortir">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/btWikiSortir"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:text="Voir le guide" />
+
+        <Button
+            android:id="@+id/btSortir"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:text="Sortir son chien" />
+    </LinearLayout>
 </android.support.constraint.ConstraintLayout>

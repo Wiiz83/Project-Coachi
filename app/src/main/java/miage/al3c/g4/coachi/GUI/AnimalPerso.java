@@ -15,12 +15,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import com.Coachi.Coachi3D.ControlleurChien3D;
 import com.google.gson.Gson;
 import com.unity3d.player.UnityPlayer;
 
 import miage.al3c.g4.coachi.Animal;
+import miage.al3c.g4.coachi.GUI.Guide.GuideSommaire;
 import miage.al3c.g4.coachi.R;
 import miage.al3c.g4.coachi.Utilisateur;
 
@@ -34,7 +36,8 @@ public class AnimalPerso extends AppCompatActivity {
 
     private Utilisateur utilisateur;
     private Animal animal;
-    Button btnBoutique, btnGuide, btnStatistiques, btnDeconnexion, btnJouer, btnNourir, BtnAbreuver, BtnSoigner, BtnLaver, BtnSortir;
+    Button btnBoutique, btnGuideSommaire, btnStatistiques, btnDeconnexion, btnJouer, btnNourir, BtnAbreuver, BtnSoigner, BtnLaver, BtnSortir;
+    TextView textviewNom, textViewAge;
     ProgressBar pbEnergie, pbSante, pbMoral;
 
     public AnimalPerso() {
@@ -79,23 +82,13 @@ public class AnimalPerso extends AppCompatActivity {
             }
         });
 
-        btnGuide = findViewById(R.id.btGuide);
-        btnGuide.setOnClickListener(new View.OnClickListener() {
+        btnGuideSommaire = findViewById(R.id.btGuideSommaire);
+        btnGuideSommaire.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent goToGuide;
-                goToGuide = new Intent(AnimalPerso.this, Guide.class);
-                startActivity(goToGuide);
-            }
-        });
-
-        btnStatistiques = findViewById(R.id.btStatistiques);
-        btnStatistiques.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent goToStatistiques;
-                goToStatistiques = new Intent(AnimalPerso.this, Statistiques.class);
-                startActivity(goToStatistiques);
+                Intent goToGuideSommaire;
+                goToGuideSommaire = new Intent(AnimalPerso.this, GuideSommaire.class);
+                startActivity(goToGuideSommaire);
             }
         });
 
@@ -153,7 +146,7 @@ public class AnimalPerso extends AppCompatActivity {
             }
         });
 
-        BtnLaver = findViewById(R.id.btHygiene);
+        BtnLaver = findViewById(R.id.btLaver);
         BtnLaver.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -173,8 +166,26 @@ public class AnimalPerso extends AppCompatActivity {
             }
         });
 
-        // Initialisation ProgressBar
+        // Initialisation PNom et Age
+        String Nom;
+        textviewNom= findViewById(R.id.tvNom);
+        if (animal != null) {
+            Nom = "Nom : " + animal.getNom();
+        }else {
+            Nom = "Nom : Nom du Chien";
+        }
+        textviewNom.setText(Nom);
 
+        String Age;
+        textViewAge =  findViewById(R.id.tvAge);
+        if (animal != null) {
+            Age = "Age : " + animal.getAge();
+        }else {
+            Age = "Age : Age du Chien";
+        }
+        textViewAge.setText(Age);
+
+        // Initialisation ProgressBar
         int energie, sante, moral;
 
         pbEnergie= findViewById(R.id.pbEnergie);

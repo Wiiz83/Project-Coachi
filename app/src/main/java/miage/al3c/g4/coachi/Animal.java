@@ -6,30 +6,28 @@ import miage.al3c.g4.coachi.Enum.Jeu;
 import miage.al3c.g4.coachi.Enum.Nourriture;
 import miage.al3c.g4.coachi.Utilitaire.Maladie;
 
-public abstract class Animal {
+public class Animal {
 
     private String nom;
-    private Long age;
-    private Long taille;
-    private Long poids;
+    private int age;
     private int energieP;
     private int santeP;
     private int moralP;
-    private String sante;
-    private String hygiene;
-    private Maladie maladie;
 
-    public Animal(String nom, Long age, Long taille, Long poids, int energieP, int santeP, int moralP, String sante, String hygiene, Maladie maladie) {
+    public Animal() {
+        this.nom = "Pongo";
+        this.age = 4;
+        this.energieP = 100;
+        this.santeP = 100;
+        this.moralP = 100;
+    }
+
+    public Animal(String nom, int age) {
         this.nom = nom;
         this.age = age;
-        this.taille = taille;
-        this.poids = poids;
-        this.energieP = energieP;
-        this.santeP = santeP;
-        this.moralP = moralP;
-        this.sante = sante;
-        this.hygiene = hygiene;
-        this.maladie = maladie;
+        this.energieP = 100;
+        this.santeP = 100;
+        this.moralP = 100;
     }
 
     public String getNom() {
@@ -40,28 +38,12 @@ public abstract class Animal {
         this.nom = nom;
     }
 
-    public Long getAge() {
+    public int getAge() {
         return age;
     }
 
-    public void setAge(Long age) {
+    public void setAge(int age) {
         this.age = age;
-    }
-
-    public Long getTaille() {
-        return taille;
-    }
-
-    public void setTaille(Long taille) {
-        this.taille = taille;
-    }
-
-    public Long getPoids() {
-        return poids;
-    }
-
-    public void setPoids(Long poids) {
-        this.poids = poids;
     }
 
     public int getEnergieP() {
@@ -88,32 +70,6 @@ public abstract class Animal {
         this.moralP = moralP;
     }
 
-    public String getSante() {
-        return sante;
-    }
-
-    public void setSante(String sante) {
-        this.sante = sante;
-    }
-
-    public String getHygiene() {
-        return hygiene;
-    }
-
-    public void setHygiene(String hygiene) {
-        this.hygiene = hygiene;
-    }
-
-    public Maladie getMaladie() {
-        return maladie;
-    }
-
-    public void setMaladie(Maladie maladie) {
-        this.maladie = maladie;
-    }
-
-    abstract void caresser();
-
     void nourrir(Nourriture nourriture) {
         System.out.println("Nourriture : " + nourriture.toString());
     }
@@ -121,12 +77,4 @@ public abstract class Animal {
     void abreuver(Boisson boisson) {
         System.out.println("Boisson : " + boisson.toString());
     }
-
-    abstract void sortir();
-
-    abstract void jouer(Jeu jeu);
-
-    abstract void entrainer(Entrainement entrainement);
-
-    abstract String parler();
 }

@@ -8,4 +8,23 @@
     tools:context=".GUI.Jouer"
     tools:showIn="@layout/activity_jouer">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/btWikiJouer"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:text="Voir le guide" />
+
+        <Button
+            android:id="@+id/btJouer"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:text="Jouer avec son chien" />
+    </LinearLayout>
 </android.support.constraint.ConstraintLayout>

@@ -2,10 +2,9 @@
     <string name="app_name">Coachi</string>
 
     <!-- Strings related to login -->
-    <string name="title_activity_main">MainActivity</string>
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password (optional)</string>
-    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in">Connexion</string>
     <string name="action_sign_in_short">Sign in</string>
     <string name="error_invalid_email">Cette adresse email est invalide</string>
     <string name="error_invalid_password">Ce mot de passe est trop court</string>
@@ -15,7 +14,7 @@
         completions."
     </string>
     <string name="action_settings">Paramètres</string>
-    <string name="title_activity_connexion">Connexion</string>
+    <string name="title_activity_connexion">Coachi</string>
     <string name="title_activity_nouvel_animal">NouvelAnimal</string>
     <string name="section_format">Bonjour le monde section: %1$d</string>
     <string name="title_activity_boutique">Boutique</string>
@@ -26,6 +25,7 @@
     <string name="title_activity_jouer">Jouer</string>
     <string name="title_activity_sortir">Sortir</string>
     <string name="title_activity_soigner">Soigner</string>
+    <string name="title_activity_laver">Laver</string>
     <string name="title_activity_wiki">Guide</string>
     <string name="large_text">
         "Material is the metaphor.\n\n"
@@ -114,6 +114,62 @@
         "user picks up a card, or it can move if a snackbar appears.\n"
         "On the layout level, design your app layout to minimize opportunities for interference. "
         "For example, position the FAB to one side of stream of a cards so the FAB won’t interfere "
-        "when a user tries to pick up one of cards.\n\n"
+        "when a user tries to pick up one of cards.\n\n\n\n\n\n"
     </string>
+    <string name="guide_jouer">
+        "Jouer avec son chien est toujours un grand moment de joie pour le maître comme pour l'animal. Mais c'est aussi un moment important pour l'apprentissage.\n\n"
+
+		"<b>Méthodes positives : motivation et récompenses </b>\n"
+		"Un jouet peut être un formidable « objet de motivation » pour le chien, à savoir quelque chose qui le fera avancer plus vite, plus loin, plus haut et surtout plus joyeusement. \n"
+		"Mais il faut distinguer la motivation, qui s’utilise pendant le travail pour faire progresser le chien, et la récompense, qui intervient à l’issue de l’exercice et dont le but est de renforcer le comportement de celui-ci. \n\n"
+
+		"<b>Trouver la récompense idéale pour votre chien : </b>\n"
+		"Un test facile à faire, proposez à votre chien de choisir entre un gâteau et un jouet. Renouvelez l’expérience entre le jouet ou le gâteau vainqueur et un morceau de fromage (plus appétent qu’un simple biscuit). \n"
+		"Résultat ? Le fromage l’emporte. Serait-ce encore le cas si vous utilisez un « pouic » (un jouet qui fait « pouic » quand on appuie dessus) ? \n"
+		"Ainsi, en quelques tests simples à réaliser, vous aurez une idée précise de l’ordre des préférences de votre compagnon préféré. \n\n"
+
+		"<b>Quatre en un ! </b>\n"
+		"Le jeu ou le jouet peuvent donc  être utilisé comme motivation et/ou comme récompense. Certains jouets spécialement conçus pour cela permettent d’occuper le chien, notamment en l’absence de son maître. Les Kong, pour ne pas les nommer, offrent le double avantage d’être « indestructibles » et de « distribuer de façon aléatoire » des croquettes au chien. \n\n"
+
+        "<b>Jeux à éviter :</b> \n"
+		"Cela dépend du « couple » maître(s)/chien. Si vous n’avez aucune autorité, que vous possédez un chien de grand gabarit avec un fort caractère, je ne vous conseillerai pas les jeux « brutaux » et de lutte en général. On peut jouer au tir à la corde si on est capable de récupérer le jouet en question quand on le veut, ce qui ne signifie pas qu’on doive le faire systématiquement. \n\n"
+
+		"<b>Attention aux morsures</b> \n"
+		"Jeux de mains, jeux de vilains, dit-on : est-ce vrai avec son chien ? Commençons par remettre les choses à leur place : votre chien jouera peu avec ses pattes; il utilisera donc ce que la nature a mis à sa disposition, à savoir sa gueule. Sa gueule est pleine de dents et a morsure inhibée est parfois difficile à tenir pour certains chiens dans le feu de l’action."
+        "\n\n\n\n"
+    </string>
+    <string name="guide_nourir">J\'ai compris</string>
+    <string name="guide_abreuver">J\'ai compris</string>
+    <string name="guide_soigner">J\'ai compris</string>
+    <string name="guide_laver">J\'ai compris</string>
+    <string name="guide_sortir">
+        "<b>Choisir les bons accessoires </b>\n"
+		"Demandez conseil à votre vétérinaire. Il saura vous orienter et vous suggérer les modèles de laisses et de colliers adaptés à votre chien. \n"
+		"Optez pour des modèles de qualité et adaptés. Choisissez un collier et une laisse avec un fermoir classique si vos promenades sont plutôt calmes. Si, au contraire, votre chien vous donne du fil à retordre lors des sorties, il existe différentes solutions : le collier à coulisse, le double collier, le harnais, le collier électrique, le collier fluorescent (pour les sorties nocturnes)... \n"
+		"Essayez le clicker. Le clicker est utilisé par bon nombre d'éducateurs canins pour le dressage. Il peut aussi être utile dans l'apprentissage de la marche avec laisse. \n\n"
+
+		"<b>Avant de commencer les promenades</b> \n"
+		"Enfilez-lui son collier et sa laisse. Avec le temps et l'habitude, il comprendra qu'il sera sur le point de sortir dès que vous prendrez le collier et la laisse. Habituez-le à les porter suffisamment tôt. \n"
+		"Adaptez le collier à la taille de son cou. Il ne doit être ni trop serré, ni trop lâche. Vous devez pouvoir passer 2 doigts entre son cou et son collier. \n\n"
+
+		"<b>Durant la promenade</b> \n"
+		"Déterminez, une fois pour toutes, le côté sur lequel il marchera durant les sorties. De manière générale, les maîtres préfèrent tenir leurs chiens sur leur côté gauche. Il faudra garder ce côté toute sa vie durant. \n"
+		"Maintenez la laisse près de vous pour garder le contrôle. C'est vous qui dirigez la marche, pas votre chien. Mais ne serrez pas non plus trop fort ; laissez-lui un peu de mou. \n"
+		"Pendant la promenade, félicitez-le lorsqu'il se comporte bien. Adressez-vous à lui avec un ton joyeux quand il fait ce qu'il faut. Sinon (s'il aboie ou grogne), ne criez pas ; parlez simplement d'un ton ferme. \n"
+		"Misez sur les récompenses. Offrez-lui une friandise pour le récompenser, mais n'en abusez pas. \n\n"
+
+		"<b>La promenade doit rester un plaisir partagé</b> \n"
+		"Adaptez les sorties en cas de canicule. Si la température est trop élevée, évitez de promener votre chien pendant la journée. Faites-le très tôt le matin ou en soirée. \n"
+		"Emportez le nécessaire. Les sacs à déjections, de l'eau et de la nourriture. Donnez-lui à boire de temps en temps pendant la promenade et, en guise de friandises, offrez-lui des aliments sains : fraises, carottes... \n"
+		"Prenez quelques poses. Accordez-vous quelques moments de répit pendant la promenade, surtout s'il fait chaud. Cela vous permettra de reprendre votre souffle, aussi bien vous-même que votre chien. Reposez-vous à l'ombre et profitez-en pour le faire boire et manger."
+		"\n\n\n\n"
+    </string>
+    <string name="i_got_it">J\'ai compris</string>
+    <string name="title_activity_guide_abreuver">Abreuver son chien</string>
+    <string name="title_activity_guide_jouer">Jouer avec son chien</string>
+    <string name="title_activity_guide_laver">Laver son chien</string>
+    <string name="title_activity_guide_nourir">Nourir son chien</string>
+    <string name="title_activity_guide_soigner">Soigner son chien</string>
+    <string name="title_activity_guide_sortir">Sortir son chien</string>
+    <string name="title_activity_guide_sommaire">Guides pour son chien</string>
 </resources>

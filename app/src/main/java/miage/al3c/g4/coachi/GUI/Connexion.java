@@ -31,15 +31,17 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.Coachi.Coachi3D.ControlleurChien3D;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import miage.al3c.g4.coachi.Animal;
+import miage.al3c.g4.coachi.Chien;
 import miage.al3c.g4.coachi.R;
 import miage.al3c.g4.coachi.Utilisateur;
+import miage.al3c.g4.coachi.Utilitaire.Inventaire;
 
 import static android.Manifest.permission.READ_CONTACTS;
 
@@ -71,6 +73,7 @@ public class Connexion extends AppCompatActivity implements LoaderCallbacks<Curs
     private View mProgressView;
     private View mLoginFormView;
     private Utilisateur utilisateur;
+    private Animal animal;
     private ArrayList<Utilisateur> utilisateurs;
 
     private SharedPreferences myPrefs;
@@ -122,6 +125,7 @@ public class Connexion extends AppCompatActivity implements LoaderCallbacks<Curs
         }.getType());
         if (utilisateurs == null)
             utilisateurs = new ArrayList<>();
+        animal = new Chien("Pongo", 4);
 
         mEmailView.setText(username);
         mPasswordView.setText(password);
@@ -369,11 +373,10 @@ public class Connexion extends AppCompatActivity implements LoaderCallbacks<Curs
                 }
             }
 
-            // TODO: register the new account here.
             if (nouvelUtilisateur) {
-                utilisateur = new Utilisateur(mEmail, mPassword);
+                utilisateur = new Utilisateur(mEmail, mPassword, new Inventaire());
             }
-
+            utilisateur.setAnimal(animal);
             utilisateurs.add(utilisateur);
 
             String jsonUtilisateur = gson.toJson(utilisateur);
@@ -381,7 +384,6 @@ public class Connexion extends AppCompatActivity implements LoaderCallbacks<Curs
             String jsonUtilisateurs = gson.toJson(utilisateurs);
             myPrefsEditor.putString("Utilisateurs", jsonUtilisateurs);
             myPrefsEditor.commit();
-
 
 
             myPrefsEditor.putString(KEY_USERNAME, mEmail);

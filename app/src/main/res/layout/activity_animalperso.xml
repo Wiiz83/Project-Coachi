@@ -26,19 +26,11 @@
                 android:textSize="7sp" />
 
             <Button
-                android:id="@+id/btGuide"
+                android:id="@+id/btGuideSommaire"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Guide"
-                android:textSize="7sp" />
-
-            <Button
-                android:id="@+id/btStatistiques"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Statistiques"
+                android:text="Guides"
                 android:textSize="7sp" />
 
             <Button

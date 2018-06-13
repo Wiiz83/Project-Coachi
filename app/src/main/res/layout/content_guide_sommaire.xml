@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".GUI.Guide.GuideSommaire"
+    tools:showIn="@layout/activity_guide_sommaire">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/btGuideJouer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="Jouer"
+            android:textSize="7sp" />
+
+        <Button
+            android:id="@+id/btGuideNourir"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="Nourir"
+            android:textSize="7sp" />
+
+        <Button
+            android:id="@+id/btGuideAbreuver"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="Abreuver"
+            android:textSize="7sp" />
+
+        <Button
+            android:id="@+id/btGuideSoigner"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="Soigner"
+            android:textSize="7sp" />
+
+        <Button
+            android:id="@+id/btGuideHygiene"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="Hygiene"
+            android:textSize="7sp" />
+
+        <Button
+            android:id="@+id/btGuideSortir"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="Sortir"
+            android:textSize="7sp" />
+    </LinearLayout>
+</android.support.constraint.ConstraintLayout>

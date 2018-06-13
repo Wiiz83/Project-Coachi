@@ -1,14 +1,20 @@
 package miage.al3c.g4.coachi.Utilitaire;
 
 import java.util.Dictionary;
+import java.util.Enumeration;
+import java.util.HashMap;
 
 import miage.al3c.g4.coachi.Enum.Boisson;
 import miage.al3c.g4.coachi.Enum.Nourriture;
 import miage.al3c.g4.coachi.Utilitaire.Badge;
 
 public class Inventaire {
-    private int PoidsTotal;
-    private Dictionary stock;
+    private HashMap<String, Integer> stock;
+
+    public Inventaire() {
+        this.stock = new HashMap<String, Integer>();
+        initializeStock();
+    }
 
     public void initializeStock(){
         this.stock.put("Croquettes",0);
@@ -26,9 +32,9 @@ public class Inventaire {
     public int getFoodStock(Nourriture n){
         switch(n){
             case Croquettes:
-                return (int)this.stock.get("Croquettes");
+                return this.stock.get("Croquettes");
             case Pâté:
-                return (int)this.stock.get("pâté");
+                return this.stock.get("pâté");
             default:
                 return(0);
         }
@@ -39,44 +45,28 @@ public class Inventaire {
     public int getBoissonStock(Boisson b){
         switch(b){
             case Eau:
-                return (int)this.stock.get("Eau");
+                return this.stock.get("Eau");
             case Lait:
-                return (int)this.stock.get("Lait");
+                return this.stock.get("Lait");
             default:
                 return(0);
         }
     }
 
     public void beenUsed(String ident, int toRemove){
-        this.stock.put(ident, (int)this.stock.get(ident) - toRemove);
+        this.stock.put(ident, this.stock.get(ident) - toRemove);
     }
 
     public void toAdd(String ident, int toAdd){
-        this.stock.put(ident, (int)this.stock.get(ident) + toAdd);
-    }
-
-    public void badgeAcquired(String nomBadge){
-        this.stock.put(nomBadge, 1);
-    }
-
-    public void revokeBadge(String nomBadge){
-        this.stock.remove(nomBadge);
+        this.stock.put(ident, this.stock.get(ident) + toAdd);
     }
 
     public void addAccessory(String nomUtilitaire, int toAdd){
-        this.stock.put(nomUtilitaire, (int)this.stock.get(nomUtilitaire) + toAdd);
+        this.stock.put(nomUtilitaire, this.stock.get(nomUtilitaire) + toAdd);
     }
 
     public void useAccessory(String nomUtilitaire, int toRemove){
-        this.stock.put(nomUtilitaire, (int)this.stock.get(nomUtilitaire) - toRemove);
-    }
-
-    public void addMedicament(String nomMedoc, int toAdd){
-        this.stock.put(nomMedoc, (int)this.stock.get(nomMedoc) + toAdd);
-    }
-
-    public void useMedicament(String nomMedoc, int toRemove){
-        this.stock.put(nomMedoc, (int)this.stock.get(nomMedoc) - toRemove);
+        this.stock.put(nomUtilitaire, this.stock.get(nomUtilitaire) - toRemove);
     }
 
 }
