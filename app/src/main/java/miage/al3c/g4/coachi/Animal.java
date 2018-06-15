@@ -28,9 +28,9 @@ public class Animal {
     public Animal(String nom, int age) {
         this.nom = nom;
         this.age = age;
-        this.energieP = 100;
-        this.santeP = 100;
-        this.moralP = 100;
+        this.energieP = 50;
+        this.santeP = 50;
+        this.moralP = 50;
     }
 
     public String getNom() {

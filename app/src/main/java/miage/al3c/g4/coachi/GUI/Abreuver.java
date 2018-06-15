@@ -1,5 +1,6 @@
 package miage.al3c.g4.coachi.GUI;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -39,7 +40,7 @@ public class Abreuver extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         // Récupération SharedPreferences
-        myPrefs = PreferenceManager.getDefaultSharedPreferences(this);
+        myPrefs = getSharedPreferences("Coachi", Context.MODE_PRIVATE);
         myPrefsEditor = myPrefs.edit();
 
         // Récupérer l'utilisateur
@@ -64,9 +65,19 @@ public class Abreuver extends AppCompatActivity {
         btnAbreuver.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                finish();
+                abreuver(10, 10, 10);
             }
         });
+    }
+
+    public void abreuver(int energie, int sante, int moral){
+        Intent intent = new Intent(Abreuver.this, AnimalPerso.class);
+        intent.putExtra("Action", "Sortir");
+        intent.putExtra("EnergieBonus", energie);
+        intent.putExtra("SanteBonus", sante);
+        intent.putExtra("MoralBonus", moral);
+        finish();
+        startActivity(intent);
     }
 
 }

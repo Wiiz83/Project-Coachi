@@ -1,9 +1,11 @@
 package miage.al3c.g4.coachi.GUI;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Bundle;
+import android.os.Handler;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -16,6 +18,7 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.Coachi.Coachi3D.ControlleurChien3D;
 import com.google.gson.Gson;
@@ -38,6 +41,7 @@ public class AnimalPerso extends AppCompatActivity {
     private Animal animal;
 
     private UnityPlayer mUnityPlayer;
+    private ControlleurChien3D controlleurChien3D;
 
     public AnimalPerso() {
     }
@@ -60,7 +64,7 @@ public class AnimalPerso extends AppCompatActivity {
         layoutUnity.addView(mUnityPlayer, 0, new LinearLayout.LayoutParams(LinearLayout.LayoutParams.FILL_PARENT, height, LinearLayout.LayoutParams.MATCH_PARENT));
 
         // Récupération SharedPreferences
-        myPrefs = PreferenceManager.getDefaultSharedPreferences(this);
+        myPrefs = getSharedPreferences("Coachi", Context.MODE_PRIVATE);
         myPrefsEditor = myPrefs.edit();
 
         // Récupérer l'utilisateur
@@ -102,6 +106,7 @@ public class AnimalPerso extends AppCompatActivity {
                 utilisateur = null;
                 String jsonUtilisateur = gson.toJson(utilisateur);
                 myPrefsEditor.putString("Utilisateur", jsonUtilisateur);
+                myPrefsEditor.apply();
             }
         });
 
@@ -165,54 +170,92 @@ public class AnimalPerso extends AppCompatActivity {
             }
         });
 
-        // Initialisation PNom et Age
-        String Nom;
+        // Initialisation Nom et Age
+
+        // Initialisation Données Chien
         textviewNom = findViewById(R.id.tvNom);
-        if (animal != null) {
-            Nom = "Nom : " + animal.getNom();
-        } else {
-            Nom = "Nom : Nom du Chien";
-        }
-        textviewNom.setText(Nom);
-
-        String Age;
         textViewAge = findViewById(R.id.tvAge);
-        if (animal != null) {
-            Age = "Age : " + animal.getAge();
-        } else {
-            Age = "Age : Age du Chien";
-        }
-        textViewAge.setText(Age);
-
-        // Initialisation ProgressBar
-        int energie, sante, moral;
-
         pbEnergie = findViewById(R.id.pbEnergie);
-        if (animal != null) {
-            energie = animal.getEnergieP();
-        } else {
-            energie = 100;
-        }
-        pbEnergie.setProgress(energie);
-
         pbSante = findViewById(R.id.pbSante);
-        if (animal != null) {
-            sante = animal.getSanteP();
-        } else {
-            sante = 75;
-        }
-        pbSante.setProgress(sante);
-
         pbMoral = findViewById(R.id.pbMoral);
-        if (animal != null) {
-            moral = animal.getMoralP();
-        } else {
-            moral = 50;
-        }
-        pbMoral.setProgress(moral);
+        rereshStatusChien();
 
-        ControlleurChien3D ctrl = new ControlleurChien3D();
-        ctrl.goToBowlAndEat();
+        controlleurChien3D = new ControlleurChien3D();
+        controlleurChien3D.goToCenter();
+    }
+
+    protected void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
+        setIntent(intent);
+        processIntent();
+    }
+
+    private void processIntent() {
+        Bundle extras = getIntent().getExtras();
+
+        switch (extras.getString("Action")) {
+            case "Jouer":
+                controlleurChien3D.goToBowlAndEat();
+                waitForBonus(extras, "Jouer");
+                break;
+            case "Nourir":
+                controlleurChien3D.goToBowlAndEat();
+                waitForBonus(extras, "Jouer");
+                break;
+            case "Abreuver":
+                controlleurChien3D.goToBowlAndEat();
+                waitForBonus(extras, "Jouer");
+                break;
+            case "Soigner":
+                controlleurChien3D.goToBowlAndEat();
+                waitForBonus(extras, "Jouer");
+                break;
+            case "Laver":
+                controlleurChien3D.goToBowlAndEat();
+                waitForBonus(extras, "Laver");
+                break;
+            case "Sortir":
+                controlleurChien3D.goToBowlAndEat();
+                waitForBonus(extras, "Sortir");
+                break;
+            default:
+                break;
+        }
+    }
+
+    public void waitForBonus(final Bundle extras, final String message) {
+        final Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                controlleurChien3D.stopMovement();
+                //animal.addBonus(extras.getInt("EnergieBonus"), extras.getInt("SanteBonus"), extras.getInt("MoralBonus"));
+                animal.addBonus(extras.getInt("EnergieBonus"), extras.getInt("SanteBonus"), extras.getInt("MoralBonus"));
+                saveChanges();
+                rereshStatusChien();
+                messageToast(message);
+                controlleurChien3D.goToCenter();
+            }
+        }, 10000);
+    }
+
+    public void saveChanges() {
+        String jsonUtilisateur = gson.toJson(utilisateur);
+        myPrefsEditor.putString("Utilisateur", jsonUtilisateur);
+        myPrefsEditor.apply();
+    }
+
+    public void rereshStatusChien() {
+        textviewNom.setText(animal != null ? "Nom : " + animal.getNom() : "Nom : Nom du Chien");
+        textViewAge.setText(animal != null ? "Age : " + animal.getAge() : "Age : Age du Chien");
+        pbEnergie.setProgress(animal != null ? animal.getEnergieP() : 50);
+        pbSante.setProgress(animal != null ? animal.getSanteP() : 50);
+        pbMoral.setProgress(animal != null ? animal.getMoralP() : 50);
+    }
+
+
+    public void messageToast(String message) {
+        Toast.makeText(getApplicationContext(), message, Toast.LENGTH_LONG).show();
     }
 
     // Quit Unity

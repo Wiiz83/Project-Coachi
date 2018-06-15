@@ -1,5 +1,6 @@
 package miage.al3c.g4.coachi.GUI;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -39,7 +40,7 @@ public class Laver extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         // Récupération SharedPreferences
-        myPrefs = PreferenceManager.getDefaultSharedPreferences(this);
+        myPrefs = getSharedPreferences("Coachi", Context.MODE_PRIVATE);
         myPrefsEditor = myPrefs.edit();
 
         // Récupérer l'utilisateur
@@ -64,9 +65,19 @@ public class Laver extends AppCompatActivity {
         btnLaver.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                finish();
+                laver(3, 3, 3);
             }
         });
+    }
+
+    public void laver(int energie, int sante, int moral) {
+        Intent intent = new Intent(Laver.this, AnimalPerso.class);
+        intent.putExtra("Action", "Laver");
+        intent.putExtra("EnergieBonus", energie);
+        intent.putExtra("SanteBonus", sante);
+        intent.putExtra("MoralBonus", moral);
+        finish();
+        startActivity(intent);
     }
 
 

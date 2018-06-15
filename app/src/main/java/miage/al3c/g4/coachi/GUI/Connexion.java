@@ -4,6 +4,7 @@ import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
 import android.app.LoaderManager.LoaderCallbacks;
+import android.content.Context;
 import android.content.CursorLoader;
 import android.content.Intent;
 import android.content.Loader;
@@ -14,7 +15,6 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.provider.ContactsContract;
 import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
@@ -50,8 +50,6 @@ import static android.Manifest.permission.READ_CONTACTS;
  */
 public class Connexion extends AppCompatActivity implements LoaderCallbacks<Cursor> {
 
-    static final String KEY_USERNAME = "username";
-    static final String KEY_PASSWORD = "password";
     /**
      * Id to identity READ_CONTACTS permission request.
      */
@@ -63,6 +61,7 @@ public class Connexion extends AppCompatActivity implements LoaderCallbacks<Curs
     private static final String[] DUMMY_CREDENTIALS = new String[]{
             "foo@example.com:hello", "bar@example.com:world"
     };
+    boolean nouvelUtilisateur = true;
     /**
      * Keep track of the login task to ensure we can cancel it if requested.
      */
@@ -75,7 +74,6 @@ public class Connexion extends AppCompatActivity implements LoaderCallbacks<Curs
     private Utilisateur utilisateur;
     private Animal animal;
     private ArrayList<Utilisateur> utilisateurs;
-
     private SharedPreferences myPrefs;
     private SharedPreferences.Editor myPrefsEditor;
     private Gson gson = new Gson();
@@ -88,10 +86,10 @@ public class Connexion extends AppCompatActivity implements LoaderCallbacks<Curs
         setContentView(R.layout.activity_connexion);
 
         // Set up the login form.
-        mEmailView = (AutoCompleteTextView) findViewById(R.id.email);
+        mEmailView = findViewById(R.id.email);
         populateAutoComplete();
 
-        mPasswordView = (EditText) findViewById(R.id.password);
+        mPasswordView = findViewById(R.id.password);
         mPasswordView.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView textView, int id, KeyEvent keyEvent) {
@@ -103,7 +101,7 @@ public class Connexion extends AppCompatActivity implements LoaderCallbacks<Curs
             }
         });
 
-        Button mEmailSignInButton = (Button) findViewById(R.id.email_sign_in_button);
+        Button mEmailSignInButton = findViewById(R.id.email_sign_in_button);
         mEmailSignInButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -115,20 +113,19 @@ public class Connexion extends AppCompatActivity implements LoaderCallbacks<Curs
         mProgressView = findViewById(R.id.login_progress);
 
         // Récupération SharedPreferences
-        myPrefs = PreferenceManager.getDefaultSharedPreferences(this);
+        myPrefs = getSharedPreferences("Coachi", Context.MODE_PRIVATE);
         myPrefsEditor = myPrefs.edit();
 
-        String username = myPrefs.getString(KEY_USERNAME, "");
-        String password = myPrefs.getString(KEY_PASSWORD, "");
         String json = myPrefs.getString("Utilisateurs", "");
         utilisateurs = gson.fromJson(json, new TypeToken<ArrayList<Utilisateur>>() {
         }.getType());
-        if (utilisateurs == null)
+        if (utilisateurs == null) {
             utilisateurs = new ArrayList<>();
+        }
         animal = new Chien("Pongo", 4);
 
-        mEmailView.setText(username);
-        mPasswordView.setText(password);
+        mEmailView.setText(myPrefs.getString("username", ""));
+        mPasswordView.setText(myPrefs.getString("password", ""));
     }
 
     private void populateAutoComplete() {
@@ -361,34 +358,33 @@ public class Connexion extends AppCompatActivity implements LoaderCallbacks<Curs
                 }
             }
 
-            boolean nouvelUtilisateur = true;
-
             if (utilisateurs != null && !utilisateurs.isEmpty()) {
                 for (Utilisateur user : utilisateurs) {
                     if (user.getEmail().equals(mEmail)) {
-                        utilisateur = user;
-                        nouvelUtilisateur = false;
-                        break;
+                        if (user.getPwd().equals(mPassword)) {
+                            utilisateur = user;
+                            animal = user.getAnimal();
+                            nouvelUtilisateur = false;
+                            break;
+                        } else return false;
                     }
                 }
             }
 
             if (nouvelUtilisateur) {
                 utilisateur = new Utilisateur(mEmail, mPassword, new Inventaire());
+                utilisateur.setAnimal(animal);
+                utilisateurs.add(utilisateur);
             }
-            utilisateur.setAnimal(animal);
-            utilisateurs.add(utilisateur);
 
             String jsonUtilisateur = gson.toJson(utilisateur);
-            myPrefsEditor.putString("Utilisateur", jsonUtilisateur);
             String jsonUtilisateurs = gson.toJson(utilisateurs);
+
+            myPrefsEditor.putString("Utilisateur", jsonUtilisateur);
             myPrefsEditor.putString("Utilisateurs", jsonUtilisateurs);
-            myPrefsEditor.commit();
-
-
-            myPrefsEditor.putString(KEY_USERNAME, mEmail);
-            myPrefsEditor.putString(KEY_PASSWORD, mPassword);
-            myPrefsEditor.commit();
+            myPrefsEditor.putString("username", mEmail);
+            myPrefsEditor.putString("password", mPassword);
+            myPrefsEditor.apply();
             return true;
         }
 
@@ -398,20 +394,10 @@ public class Connexion extends AppCompatActivity implements LoaderCallbacks<Curs
             showProgress(false);
 
             if (success) {
-                if (utilisateur.getAnimal() != null) {
-                    Intent goToNAnimal;
-                    goToNAnimal = new Intent(Connexion.this, AnimalPerso.class);
-                    startActivity(goToNAnimal);
-                } else {
-                    Intent goToNAnimal;
-                    goToNAnimal = new Intent(Connexion.this, AnimalPerso.class);
-                    startActivity(goToNAnimal);
-                    /*Intent goToNouvelAnimal;
-                    goToNouvelAnimal = new Intent(Connexion.this, NouvelAnimal.class);
-                    startActivity(goToNouvelAnimal);
-                    */
-                }
+                Intent goToNAnimalPerso;
+                goToNAnimalPerso = new Intent(Connexion.this, AnimalPerso.class);
                 finish();
+                startActivity(goToNAnimalPerso);
             } else {
                 mPasswordView.setError(getString(R.string.error_incorrect_password));
                 mPasswordView.requestFocus();

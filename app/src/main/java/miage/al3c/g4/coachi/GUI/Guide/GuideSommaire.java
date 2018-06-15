@@ -2,8 +2,6 @@ package miage.al3c.g4.coachi.GUI.Guide;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -26,8 +24,6 @@ public class GuideSommaire extends AppCompatActivity {
         setContentView(R.layout.activity_guide_sommaire);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-
 
         btnGuideJouer = findViewById(R.id.btGuideJouer);
         btnGuideJouer.setOnClickListener(new View.OnClickListener() {

@@ -1,5 +1,6 @@
 package miage.al3c.g4.coachi.GUI;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -39,7 +40,7 @@ public class Boutique extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         // Récupération SharedPreferences
-        myPrefs = PreferenceManager.getDefaultSharedPreferences(this);
+        myPrefs = getSharedPreferences("Coachi", Context.MODE_PRIVATE);
         myPrefsEditor = myPrefs.edit();
 
         // Récupérer l'utilisateur
@@ -108,7 +109,7 @@ public class Boutique extends AppCompatActivity {
 
         String jsonUtilisateur = gson.toJson(utilisateur);
         myPrefsEditor.putString("Utilisateur", jsonUtilisateur);
-        myPrefsEditor.commit();
+        myPrefsEditor.apply();
         Log.d("TESTGUI", "(addItem)utilisateur dépenses : " + utilisateur.getSommmeDepensee());
     }
 

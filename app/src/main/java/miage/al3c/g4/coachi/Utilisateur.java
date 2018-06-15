@@ -5,6 +5,7 @@ import miage.al3c.g4.coachi.Utilitaire.Inventaire;
 public class Utilisateur {
 
     private String email;
+
     private String pwd;
     private Animal animal;
     private Inventaire inventaire;
@@ -21,16 +22,12 @@ public class Utilisateur {
         return email;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
     public String getPwd() {
         return pwd;
     }
 
-    public void setPwd(String pwd) {
-        this.pwd = pwd;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public Animal getAnimal() {
@@ -43,10 +40,6 @@ public class Utilisateur {
 
     public Inventaire getInventaire() {
         return inventaire;
-    }
-
-    public void setInventaire(Inventaire inventaire) {
-        this.inventaire = inventaire;
     }
 
     public int getSommmeDepensee() {
