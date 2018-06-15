@@ -85,14 +85,6 @@ public class Nourir extends AppCompatActivity {
                 finish();
             }
         });
-
-        btnNourir = findViewById(R.id.btNourir);
-        btnNourir.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                finish();
-            }
-        });
     }
 
 }
