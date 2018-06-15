@@ -1,11 +1,6 @@
 package miage.al3c.g4.coachi;
 
-import java.util.ArrayList;
-
-import miage.al3c.g4.coachi.Utilitaire.Badge;
-import miage.al3c.g4.coachi.Utilitaire.Habitude;
 import miage.al3c.g4.coachi.Utilitaire.Inventaire;
-import miage.al3c.g4.coachi.Utilitaire.TestPersonalitee;
 
 public class Utilisateur {
 
@@ -13,11 +8,13 @@ public class Utilisateur {
     private String pwd;
     private Animal animal;
     private Inventaire inventaire;
+    private int sommmeDepensee;
 
     public Utilisateur(String email, String pwd, Inventaire inventaire) {
         this.email = email;
         this.pwd = pwd;
         this.inventaire = inventaire;
+        this.sommmeDepensee = 0;
     }
 
     public String getEmail() {
@@ -50,5 +47,13 @@ public class Utilisateur {
 
     public void setInventaire(Inventaire inventaire) {
         this.inventaire = inventaire;
+    }
+
+    public int getSommmeDepensee() {
+        return sommmeDepensee;
+    }
+
+    public void setSommmeDepensee(int sommmeDepensee) {
+        this.sommmeDepensee = sommmeDepensee;
     }
 }

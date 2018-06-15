@@ -18,9 +18,13 @@ public class Inventaire {
 
     public void initializeStock(){
         this.stock.put("Croquettes",0);
+        this.stock.put("Pâté",0);
+        this.stock.put("Friandises",0);
+        this.stock.put("Jouet",0);
+        this.stock.put("Collier",0);
+        this.stock.put("Brosse",0);
         this.stock.put("Lait",0);
         this.stock.put("Eau",0);
-        this.stock.put("Pâté",0);
     }
 
     public void fillStock(String ident, int Usable){
@@ -34,7 +38,7 @@ public class Inventaire {
             case Croquettes:
                 return this.stock.get("Croquettes");
             case Pâté:
-                return this.stock.get("pâté");
+                return this.stock.get("Pâté");
             default:
                 return(0);
         }
@@ -57,12 +61,12 @@ public class Inventaire {
         this.stock.put(ident, this.stock.get(ident) - toRemove);
     }
 
-    public void toAdd(String ident, int toAdd){
-        this.stock.put(ident, this.stock.get(ident) + toAdd);
+    public void addItem(String nomItem, int toAdd){
+        this.stock.put(nomItem, this.stock.get(nomItem) != null ? this.stock.get(nomItem) : toAdd);
     }
 
-    public void addAccessory(String nomUtilitaire, int toAdd){
-        this.stock.put(nomUtilitaire, this.stock.get(nomUtilitaire) + toAdd);
+    public void getItem(String nomItem){
+        this.stock.get(nomItem);
     }
 
     public void useAccessory(String nomUtilitaire, int toRemove){

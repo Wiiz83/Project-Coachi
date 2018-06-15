@@ -28,7 +28,7 @@
                 app:srcCompat="@mipmap/ic_launcher_round" />
 
             <TextView
-                android:id="@+id/textView"
+                android:id="@+id/tvDepenses"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -69,7 +69,7 @@
                         android:orientation="vertical">
 
                         <ImageButton
-                            android:id="@+id/imageButton2"
+                            android:id="@+id/ibtN1"
                             android:layout_width="match_parent"
                             android:layout_height="0dp"
                             android:layout_weight="1"
@@ -91,7 +91,7 @@
                         android:orientation="vertical">
 
                         <ImageButton
-                            android:id="@+id/imageButton2"
+                            android:id="@+id/ibtN2"
                             android:layout_width="match_parent"
                             android:layout_height="0dp"
                             android:layout_weight="1"
@@ -102,7 +102,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="0dp"
                             android:layout_weight="1"
-                            android:text="Pâtés" />
+                            android:text="Pâté" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -112,7 +112,7 @@
                         android:orientation="vertical">
 
                         <ImageButton
-                            android:id="@+id/imageButton3"
+                            android:id="@+id/ibtN3"
                             android:layout_width="match_parent"
                             android:layout_height="0dp"
                             android:layout_weight="1"
@@ -162,7 +162,7 @@
                         android:orientation="vertical">
 
                         <ImageButton
-                            android:id="@+id/imageButton5"
+                            android:id="@+id/ibtA1"
                             android:layout_width="match_parent"
                             android:layout_height="0dp"
                             android:layout_weight="1"
@@ -183,7 +183,7 @@
                         android:orientation="vertical">
 
                         <ImageButton
-                            android:id="@+id/imageButton6"
+                            android:id="@+id/ibtA2"
                             android:layout_width="match_parent"
                             android:layout_height="0dp"
                             android:layout_weight="1"
@@ -205,7 +205,7 @@
                         android:orientation="vertical">
 
                         <ImageButton
-                            android:id="@+id/imageButton8"
+                            android:id="@+id/ibtA3"
                             android:layout_width="match_parent"
                             android:layout_height="0dp"
                             android:layout_weight="1"

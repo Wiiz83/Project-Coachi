@@ -1,5 +1,7 @@
 package miage.al3c.g4.coachi;
 
+import java.util.Date;
+
 import miage.al3c.g4.coachi.Enum.Boisson;
 import miage.al3c.g4.coachi.Enum.Entrainement;
 import miage.al3c.g4.coachi.Enum.Jeu;
@@ -13,6 +15,7 @@ public class Animal {
     private int energieP;
     private int santeP;
     private int moralP;
+    private Date lastJouer, lastNourir, lastAbreuver, lastSoigner, lastLaver, lastSortir;
 
     public Animal() {
         this.nom = "Pongo";
@@ -34,47 +37,29 @@ public class Animal {
         return nom;
     }
 
-    public void setNom(String nom) {
-        this.nom = nom;
-    }
-
     public int getAge() {
         return age;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
     }
 
     public int getEnergieP() {
         return energieP;
     }
 
-    public void setEnergieP(int energieP) {
-        this.energieP = energieP;
-    }
-
     public int getSanteP() {
         return santeP;
-    }
-
-    public void setSanteP(int santeP) {
-        this.santeP = santeP;
     }
 
     public int getMoralP() {
         return moralP;
     }
 
-    public void setMoralP(int moralP) {
-        this.moralP = moralP;
+    public void addBonus(int energie, int sante, int moral){
+        this.energieP += energie;
+        this.santeP += sante;
+        this.moralP += moral;
     }
 
-    void nourrir(Nourriture nourriture) {
-        System.out.println("Nourriture : " + nourriture.toString());
-    }
+    public void refreshStatus(){
 
-    void abreuver(Boisson boisson) {
-        System.out.println("Boisson : " + boisson.toString());
     }
 }

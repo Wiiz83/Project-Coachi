@@ -28,17 +28,16 @@ import miage.al3c.g4.coachi.Utilisateur;
 
 public class AnimalPerso extends AppCompatActivity {
 
+    Button btnBoutique, btnGuideSommaire, btnDeconnexion, btnJouer, btnNourir, BtnAbreuver, BtnSoigner, BtnLaver, BtnSortir;
+    TextView textviewNom, textViewAge;
+    ProgressBar pbEnergie, pbSante, pbMoral;
     private SharedPreferences myPrefs;
     private SharedPreferences.Editor myPrefsEditor;
     private Gson gson = new Gson();
-
-    private UnityPlayer mUnityPlayer;
-
     private Utilisateur utilisateur;
     private Animal animal;
-    Button btnBoutique, btnGuideSommaire, btnStatistiques, btnDeconnexion, btnJouer, btnNourir, BtnAbreuver, BtnSoigner, BtnLaver, BtnSortir;
-    TextView textviewNom, textViewAge;
-    ProgressBar pbEnergie, pbSante, pbMoral;
+
+    private UnityPlayer mUnityPlayer;
 
     public AnimalPerso() {
     }
@@ -58,7 +57,7 @@ public class AnimalPerso extends AppCompatActivity {
         // Unity
         LinearLayout layoutUnity = (LinearLayout) findViewById(R.id.llUnity);
         int height = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 300, getResources().getDisplayMetrics());
-        layoutUnity.addView(mUnityPlayer,0,new LinearLayout.LayoutParams(LinearLayout.LayoutParams.FILL_PARENT, height, LinearLayout.LayoutParams.MATCH_PARENT));
+        layoutUnity.addView(mUnityPlayer, 0, new LinearLayout.LayoutParams(LinearLayout.LayoutParams.FILL_PARENT, height, LinearLayout.LayoutParams.MATCH_PARENT));
 
         // Récupération SharedPreferences
         myPrefs = PreferenceManager.getDefaultSharedPreferences(this);
@@ -168,19 +167,19 @@ public class AnimalPerso extends AppCompatActivity {
 
         // Initialisation PNom et Age
         String Nom;
-        textviewNom= findViewById(R.id.tvNom);
+        textviewNom = findViewById(R.id.tvNom);
         if (animal != null) {
             Nom = "Nom : " + animal.getNom();
-        }else {
+        } else {
             Nom = "Nom : Nom du Chien";
         }
         textviewNom.setText(Nom);
 
         String Age;
-        textViewAge =  findViewById(R.id.tvAge);
+        textViewAge = findViewById(R.id.tvAge);
         if (animal != null) {
             Age = "Age : " + animal.getAge();
-        }else {
+        } else {
             Age = "Age : Age du Chien";
         }
         textViewAge.setText(Age);
@@ -188,26 +187,26 @@ public class AnimalPerso extends AppCompatActivity {
         // Initialisation ProgressBar
         int energie, sante, moral;
 
-        pbEnergie= findViewById(R.id.pbEnergie);
+        pbEnergie = findViewById(R.id.pbEnergie);
         if (animal != null) {
             energie = animal.getEnergieP();
-        }else {
+        } else {
             energie = 100;
         }
         pbEnergie.setProgress(energie);
 
-        pbSante= findViewById(R.id.pbSante);
+        pbSante = findViewById(R.id.pbSante);
         if (animal != null) {
             sante = animal.getSanteP();
-        }else {
+        } else {
             sante = 75;
         }
         pbSante.setProgress(sante);
 
-        pbMoral= findViewById(R.id.pbMoral);
+        pbMoral = findViewById(R.id.pbMoral);
         if (animal != null) {
             moral = animal.getMoralP();
-        }else {
+        } else {
             moral = 50;
         }
         pbMoral.setProgress(moral);
@@ -217,82 +216,96 @@ public class AnimalPerso extends AppCompatActivity {
     }
 
     // Quit Unity
-    @Override protected void onDestroy ()
-    {
+    @Override
+    protected void onDestroy() {
         mUnityPlayer.quit();
         super.onDestroy();
     }
 
     // Pause Unity
-    @Override protected void onPause()
-    {
+    @Override
+    protected void onPause() {
         super.onPause();
         mUnityPlayer.pause();
     }
 
     // Resume Unity
-    @Override protected void onResume()
-    {
+    @Override
+    protected void onResume() {
         super.onResume();
         mUnityPlayer.resume();
     }
 
-    @Override protected void onStart()
-    {
+    @Override
+    protected void onStart() {
         super.onStart();
         mUnityPlayer.start();
     }
 
-    @Override protected void onStop()
-    {
+    @Override
+    protected void onStop() {
         super.onStop();
         mUnityPlayer.stop();
     }
 
     // Low Memory Unity
-    @Override public void onLowMemory()
-    {
+    @Override
+    public void onLowMemory() {
         super.onLowMemory();
         mUnityPlayer.lowMemory();
     }
 
     // Trim Memory Unity
-    @Override public void onTrimMemory(int level)
-    {
+    @Override
+    public void onTrimMemory(int level) {
         super.onTrimMemory(level);
-        if (level == TRIM_MEMORY_RUNNING_CRITICAL)
-        {
+        if (level == TRIM_MEMORY_RUNNING_CRITICAL) {
             mUnityPlayer.lowMemory();
         }
     }
 
     // This ensures the layout will be correct.
-    @Override public void onConfigurationChanged(Configuration newConfig)
-    {
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
         mUnityPlayer.configurationChanged(newConfig);
     }
 
     // Notify Unity of the focus change.
-    @Override public void onWindowFocusChanged(boolean hasFocus)
-    {
+    @Override
+    public void onWindowFocusChanged(boolean hasFocus) {
         super.onWindowFocusChanged(hasFocus);
         mUnityPlayer.windowFocusChanged(hasFocus);
     }
 
     // For some reason the multiple keyevent type is not supported by the ndk.
     // Force event injection by overriding dispatchKeyEvent().
-    @Override public boolean dispatchKeyEvent(KeyEvent event)
-    {
+    @Override
+    public boolean dispatchKeyEvent(KeyEvent event) {
         if (event.getAction() == KeyEvent.ACTION_MULTIPLE)
             return mUnityPlayer.injectEvent(event);
         return super.dispatchKeyEvent(event);
     }
 
     // Pass any events not handled by (unfocused) views straight to UnityPlayer
-    @Override public boolean onKeyUp(int keyCode, KeyEvent event)     { return mUnityPlayer.injectEvent(event); }
-    @Override public boolean onKeyDown(int keyCode, KeyEvent event)   { return mUnityPlayer.injectEvent(event); }
-    @Override public boolean onTouchEvent(MotionEvent event)          { return mUnityPlayer.injectEvent(event); }
-    /*API12*/ public boolean onGenericMotionEvent(MotionEvent event)  { return mUnityPlayer.injectEvent(event); }
+    @Override
+    public boolean onKeyUp(int keyCode, KeyEvent event) {
+        return mUnityPlayer.injectEvent(event);
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        return mUnityPlayer.injectEvent(event);
+    }
+
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        return mUnityPlayer.injectEvent(event);
+    }
+
+    /*API12*/
+    public boolean onGenericMotionEvent(MotionEvent event) {
+        return mUnityPlayer.injectEvent(event);
+    }
 
 }

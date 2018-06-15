@@ -13,7 +13,7 @@ import miage.al3c.g4.coachi.R;
 
 public class GuideSoigner extends AppCompatActivity {
 
-    Button btnOkaySortir;
+    Button btnOkaySoigner;
 
     public GuideSoigner() {
     }
@@ -27,8 +27,8 @@ public class GuideSoigner extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         //Initialisations Boutons
-        btnOkaySortir = findViewById(R.id.btOkaySortir);
-        btnOkaySortir.setOnClickListener(new View.OnClickListener() {
+        btnOkaySoigner = findViewById(R.id.btOkaySoigner);
+        btnOkaySoigner.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 finish();
