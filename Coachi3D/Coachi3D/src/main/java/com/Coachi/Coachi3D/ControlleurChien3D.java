@@ -1,7 +1,7 @@
 package com.Coachi.Coachi3D;
 
 
-public class ControlleurChien3D  extends  UnityGameObjectController{
+public class ControlleurChien3D  extends  UnityObjectController{
 
     public ControlleurChien3D () {
         super("DalmatianLP");
@@ -25,14 +25,14 @@ public class ControlleurChien3D  extends  UnityGameObjectController{
         CallUnityMethod("stopMovement");
     }
 
-    /* etats */
-
 
     /* actions*/
 
     public void goToBowlAndEat() {
         CallUnityMethod("goToBowlAndEat");
     }
-
+    public void goToCenterAndPlay() {
+        CallUnityMethod("goToCenterAndPlay");
+    }
 
 }

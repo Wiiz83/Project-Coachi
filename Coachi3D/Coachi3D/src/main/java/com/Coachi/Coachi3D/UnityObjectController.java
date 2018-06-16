@@ -2,10 +2,10 @@ package com.Coachi.Coachi3D;
 
 import com.unity3d.player.UnityPlayer;
 
-public abstract class UnityGameObjectController {
+public abstract class UnityObjectController {
     private String UNITY_COMPONENT = "";
 
-    UnityGameObjectController (String  GameObjectID ) {
+    UnityObjectController (String  GameObjectID ) {
         UNITY_COMPONENT = GameObjectID;
     }
 
