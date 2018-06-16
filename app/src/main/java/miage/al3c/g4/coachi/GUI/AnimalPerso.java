@@ -240,10 +240,11 @@ public class AnimalPerso extends AppCompatActivity {
                 saveChanges();
                 rereshStatusChien();
                 messageToast(message);
+                timerChien = new TimerChien(controlleurChien3D);
+                timerChien.start();
                 controlleurScene.ShowAnimal(true);
             }
         }, 10000);
-        timerChien.restart();
     }
 
     public void saveChanges() {
