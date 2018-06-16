@@ -1,5 +1,6 @@
 package miage.al3c.g4.coachi.GUI;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -39,7 +40,7 @@ public class Jouer extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         // Récupération SharedPreferences
-        myPrefs = PreferenceManager.getDefaultSharedPreferences(this);
+        myPrefs = getSharedPreferences("Coachi", Context.MODE_PRIVATE);
         myPrefsEditor = myPrefs.edit();
 
         // Récupérer l'utilisateur
@@ -64,9 +65,19 @@ public class Jouer extends AppCompatActivity {
         btnJouer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                finish();
+                jouer(10, 5, 20);
             }
         });
+    }
+
+    public void jouer(int energie, int sante, int moral){
+        Intent intent = new Intent(Jouer.this, AnimalPerso.class);
+        intent.putExtra("Action", "Jouer");
+        intent.putExtra("EnergieBonus", energie);
+        intent.putExtra("SanteBonus", sante);
+        intent.putExtra("MoralBonus", moral);
+        finish();
+        startActivity(intent);
     }
 
 }

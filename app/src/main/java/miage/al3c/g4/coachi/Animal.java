@@ -8,6 +8,8 @@ import miage.al3c.g4.coachi.Enum.Jeu;
 import miage.al3c.g4.coachi.Enum.Nourriture;
 import miage.al3c.g4.coachi.Utilitaire.Maladie;
 
+import static java.lang.Math.min;
+
 public class Animal {
 
     private String nom;
@@ -28,9 +30,9 @@ public class Animal {
     public Animal(String nom, int age) {
         this.nom = nom;
         this.age = age;
-        this.energieP = 100;
-        this.santeP = 100;
-        this.moralP = 100;
+        this.energieP = 50;
+        this.santeP = 50;
+        this.moralP = 50;
     }
 
     public String getNom() {
@@ -53,13 +55,13 @@ public class Animal {
         return moralP;
     }
 
-    public void addBonus(int energie, int sante, int moral){
-        this.energieP += energie;
-        this.santeP += sante;
-        this.moralP += moral;
+    public void addBonus(int energie, int sante, int moral) {
+        this.energieP = min(100, this.energieP + energie);
+        this.santeP = min(100, this.santeP + sante);
+        this.moralP = min(100, this.moralP + moral);
     }
 
-    public void refreshStatus(){
+    public void refreshStatus() {
 
     }
 }

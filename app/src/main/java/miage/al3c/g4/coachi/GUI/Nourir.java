@@ -1,5 +1,6 @@
 package miage.al3c.g4.coachi.GUI;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -41,7 +42,7 @@ public class Nourir extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         // Récupération SharedPreferences
-        myPrefs = PreferenceManager.getDefaultSharedPreferences(this);
+        myPrefs = getSharedPreferences("Coachi", Context.MODE_PRIVATE);
         myPrefsEditor = myPrefs.edit();
 
         // Récupérer l'utilisateur
@@ -66,7 +67,7 @@ public class Nourir extends AppCompatActivity {
         btnNourrir1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                finish();
+                nourir(15, 5, 10);
             }
         });
 
@@ -74,7 +75,7 @@ public class Nourir extends AppCompatActivity {
         btnNourrir2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                finish();
+                nourir(15, 5, 10);
             }
         });
 
@@ -82,9 +83,19 @@ public class Nourir extends AppCompatActivity {
         btnNourrir3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                finish();
+                nourir(15, 5, 10);
             }
         });
+    }
+
+    public void nourir(int energie, int sante, int moral){
+        Intent intent = new Intent(Nourir.this, AnimalPerso.class);
+        intent.putExtra("Action", "Nourir");
+        intent.putExtra("EnergieBonus", energie);
+        intent.putExtra("SanteBonus", sante);
+        intent.putExtra("MoralBonus", moral);
+        finish();
+        startActivity(intent);
     }
 
 }
