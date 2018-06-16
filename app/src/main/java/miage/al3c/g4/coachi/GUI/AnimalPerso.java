@@ -21,6 +21,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.Coachi.Coachi3D.ControlleurChien3D;
+import com.Coachi.Coachi3D.SceneController;
 import com.google.gson.Gson;
 import com.unity3d.player.UnityPlayer;
 
@@ -42,6 +43,7 @@ public class AnimalPerso extends AppCompatActivity {
 
     private UnityPlayer mUnityPlayer;
     private ControlleurChien3D controlleurChien3D;
+    private SceneController controlleurScene;
 
     public AnimalPerso() {
     }
@@ -182,7 +184,8 @@ public class AnimalPerso extends AppCompatActivity {
         rereshStatusChien();
 
         controlleurChien3D = new ControlleurChien3D();
-        controlleurChien3D.goToCenter();
+        controlleurChien3D.goToBed1();
+        controlleurScene = new SceneController();
     }
 
     protected void onNewIntent(Intent intent) {
@@ -196,7 +199,7 @@ public class AnimalPerso extends AppCompatActivity {
 
         switch (extras.getString("Action")) {
             case "Jouer":
-                controlleurChien3D.goToBowlAndEat();
+                controlleurChien3D.goToCenterAndPlay();
                 waitForBonus(extras,  animal.getNom() + " a fini de jouer. Il remue la queue.");
                 break;
             case "Nourir":
@@ -216,7 +219,7 @@ public class AnimalPerso extends AppCompatActivity {
                 waitForBonus(extras, animal.getNom() + " est tout propre.");
                 break;
             case "Sortir":
-                controlleurChien3D.goToBowlAndEat();
+                controlleurScene.ShowAnimal (false);
                 waitForBonus(extras, animal.getNom() + " a fini sa promenade.");
                 break;
             default:
@@ -236,6 +239,7 @@ public class AnimalPerso extends AppCompatActivity {
                 rereshStatusChien();
                 messageToast(message);
                 controlleurChien3D.goToCenter();
+                controlleurScene.ShowAnimal(true);
             }
         }, 10000);
     }

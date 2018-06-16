@@ -1,7 +1,7 @@
 package com.Coachi.Coachi3D;
 
 public class SceneController extends UnityObjectController {
-    SceneController() {
+    public SceneController() {
         super("Controller");
     }
 
