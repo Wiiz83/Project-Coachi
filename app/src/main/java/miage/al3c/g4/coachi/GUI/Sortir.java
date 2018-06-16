@@ -65,7 +65,7 @@ public class Sortir extends AppCompatActivity {
         btnSortir.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                sortir(10, 10, 10);
+                sortir(-20, 5, 30);
             }
         });
     }

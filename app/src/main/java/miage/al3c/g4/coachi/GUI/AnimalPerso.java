@@ -149,6 +149,7 @@ public class AnimalPerso extends AppCompatActivity {
                 startActivity(goToSoigner);
             }
         });
+        BtnSoigner.setClickable(false);
 
         BtnLaver = findViewById(R.id.btLaver);
         BtnLaver.setOnClickListener(new View.OnClickListener() {
@@ -196,27 +197,27 @@ public class AnimalPerso extends AppCompatActivity {
         switch (extras.getString("Action")) {
             case "Jouer":
                 controlleurChien3D.goToBowlAndEat();
-                waitForBonus(extras, "Jouer");
+                waitForBonus(extras,  animal.getNom() + "a fini de jouer. Il remue la queue.");
                 break;
             case "Nourir":
                 controlleurChien3D.goToBowlAndEat();
-                waitForBonus(extras, "Jouer");
+                waitForBonus(extras, "Super, " + animal.getNom() + " a fini de manger !");
                 break;
             case "Abreuver":
                 controlleurChien3D.goToBowlAndEat();
-                waitForBonus(extras, "Jouer");
+                waitForBonus(extras, animal.getNom() + "a fini de boire.");
                 break;
             case "Soigner":
                 controlleurChien3D.goToBowlAndEat();
-                waitForBonus(extras, "Jouer");
+                waitForBonus(extras, animal.getNom() + " a était remis à neuf par le vétérianaire.");
                 break;
             case "Laver":
                 controlleurChien3D.goToBowlAndEat();
-                waitForBonus(extras, "Laver");
+                waitForBonus(extras, animal.getNom() + " est tout propre.");
                 break;
             case "Sortir":
                 controlleurChien3D.goToBowlAndEat();
-                waitForBonus(extras, "Sortir");
+                waitForBonus(extras, animal.getNom() + "a fini sa promenade.");
                 break;
             default:
                 break;

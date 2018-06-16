@@ -67,7 +67,7 @@ public class Nourir extends AppCompatActivity {
         btnNourrir1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                nourir(1, 1, 1);
+                nourir(15, 5, 10);
             }
         });
 
@@ -75,7 +75,7 @@ public class Nourir extends AppCompatActivity {
         btnNourrir2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                nourir(2, 2, 2);
+                nourir(15, 5, 10);
             }
         });
 
@@ -83,7 +83,7 @@ public class Nourir extends AppCompatActivity {
         btnNourrir3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                nourir(3,3,3);
+                nourir(15, 5, 10);
             }
         });
     }

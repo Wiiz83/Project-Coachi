@@ -65,7 +65,7 @@ public class Jouer extends AppCompatActivity {
         btnJouer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                jouer(5, 5, 5);
+                jouer(10, 5, 20);
             }
         });
     }

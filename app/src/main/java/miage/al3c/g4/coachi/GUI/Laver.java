@@ -65,7 +65,7 @@ public class Laver extends AppCompatActivity {
         btnLaver.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                laver(3, 3, 3);
+                laver(0, 5, 10);
             }
         });
     }

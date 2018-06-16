@@ -65,7 +65,7 @@ public class Soigner extends AppCompatActivity {
         btnSoigner.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                soigner(5,5,5);
+                soigner(0,100,-20);
             }
         });
     }
