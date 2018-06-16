@@ -18,7 +18,7 @@ public class TimerChien extends CountDownTimer {
     private DEST destiation  = DEST.BED1;
 
     public TimerChien(ControlleurChien3D chien) {
-       super(9999999,10000);
+       super(9999999,20000);
        this.chien = chien;
    }
 
@@ -36,5 +36,10 @@ public class TimerChien extends CountDownTimer {
 
     @Override
     public void onFinish() {
+    }
+
+    public void restart() {
+        cancel();
+        start();
     }
 }
