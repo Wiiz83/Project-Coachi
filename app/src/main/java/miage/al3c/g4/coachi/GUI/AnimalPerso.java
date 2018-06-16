@@ -197,7 +197,7 @@ public class AnimalPerso extends AppCompatActivity {
         switch (extras.getString("Action")) {
             case "Jouer":
                 controlleurChien3D.goToBowlAndEat();
-                waitForBonus(extras,  animal.getNom() + "a fini de jouer. Il remue la queue.");
+                waitForBonus(extras,  animal.getNom() + " a fini de jouer. Il remue la queue.");
                 break;
             case "Nourir":
                 controlleurChien3D.goToBowlAndEat();
@@ -205,7 +205,7 @@ public class AnimalPerso extends AppCompatActivity {
                 break;
             case "Abreuver":
                 controlleurChien3D.goToBowlAndEat();
-                waitForBonus(extras, animal.getNom() + "a fini de boire.");
+                waitForBonus(extras, animal.getNom() + " a fini de boire.");
                 break;
             case "Soigner":
                 controlleurChien3D.goToBowlAndEat();
@@ -217,7 +217,7 @@ public class AnimalPerso extends AppCompatActivity {
                 break;
             case "Sortir":
                 controlleurChien3D.goToBowlAndEat();
-                waitForBonus(extras, animal.getNom() + "a fini sa promenade.");
+                waitForBonus(extras, animal.getNom() + " a fini sa promenade.");
                 break;
             default:
                 break;
