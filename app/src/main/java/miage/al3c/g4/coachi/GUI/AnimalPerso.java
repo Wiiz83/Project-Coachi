@@ -28,6 +28,7 @@ import com.unity3d.player.UnityPlayer;
 import miage.al3c.g4.coachi.Animal;
 import miage.al3c.g4.coachi.GUI.Guide.GuideSommaire;
 import miage.al3c.g4.coachi.R;
+import miage.al3c.g4.coachi.TimerChien;
 import miage.al3c.g4.coachi.Utilisateur;
 
 public class AnimalPerso extends AppCompatActivity {
@@ -44,7 +45,7 @@ public class AnimalPerso extends AppCompatActivity {
     private UnityPlayer mUnityPlayer;
     private ControlleurChien3D controlleurChien3D;
     private SceneController controlleurScene;
-
+    TimerChien timerChien;
     public AnimalPerso() {
     }
 
@@ -184,7 +185,8 @@ public class AnimalPerso extends AppCompatActivity {
         rereshStatusChien();
 
         controlleurChien3D = new ControlleurChien3D();
-        controlleurChien3D.goToBed1();
+        timerChien = new TimerChien(controlleurChien3D);
+        timerChien.start();
         controlleurScene = new SceneController();
     }
 
@@ -196,7 +198,7 @@ public class AnimalPerso extends AppCompatActivity {
 
     private void processIntent() {
         Bundle extras = getIntent().getExtras();
-
+        timerChien.cancel();
         switch (extras.getString("Action")) {
             case "Jouer":
                 controlleurChien3D.goToCenterAndPlay();
@@ -238,7 +240,8 @@ public class AnimalPerso extends AppCompatActivity {
                 saveChanges();
                 rereshStatusChien();
                 messageToast(message);
-                controlleurChien3D.goToCenter();
+                timerChien = new TimerChien(controlleurChien3D);
+                timerChien.start();
                 controlleurScene.ShowAnimal(true);
             }
         }, 10000);
