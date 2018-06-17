@@ -6,7 +6,7 @@ import com.Coachi.Coachi3D.ControlleurChien3D;
 
 public class TimerChien extends CountDownTimer {
     private final ControlleurChien3D chien;
-
+    private boolean ignore=true;
     private enum DEST {BED1,BED2,CENTER ;
         private static DEST[] vals = values();
         public DEST next()
@@ -25,13 +25,18 @@ public class TimerChien extends CountDownTimer {
 
     @Override
     public void onTick(long millisUntilFinished) {
-        destiation = destiation.next();
+        if (ignore)
+        {
+            ignore = false;
+            return;
+        }
         switch ( destiation ) {
             case BED1: chien.goToBed1();break;
             case BED2: chien.goToBed2();break;
-            case CENTER: chien.goToCenter();
+         //   case CENTER: chien.goToCenter();
             default: break;
         }
+        destiation = destiation.next();
     }
 
     @Override
