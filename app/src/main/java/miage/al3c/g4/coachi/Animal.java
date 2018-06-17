@@ -2,12 +2,6 @@ package miage.al3c.g4.coachi;
 
 import java.util.Date;
 
-import miage.al3c.g4.coachi.Enum.Boisson;
-import miage.al3c.g4.coachi.Enum.Entrainement;
-import miage.al3c.g4.coachi.Enum.Jeu;
-import miage.al3c.g4.coachi.Enum.Nourriture;
-import miage.al3c.g4.coachi.Utilitaire.Maladie;
-
 import static java.lang.Math.min;
 
 public class Animal {

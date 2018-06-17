@@ -19,7 +19,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="Jouer"
-            android:textSize="7sp" />
+            android:textSize="14sp" />
 
         <Button
             android:id="@+id/btGuideNourir"
@@ -27,7 +27,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="Nourir"
-            android:textSize="7sp" />
+            android:textSize="14sp" />
 
         <Button
             android:id="@+id/btGuideAbreuver"
@@ -35,7 +35,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="Abreuver"
-            android:textSize="7sp" />
+            android:textSize="14sp" />
 
         <Button
             android:id="@+id/btGuideSoigner"
@@ -43,15 +43,15 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="Soigner"
-            android:textSize="7sp" />
+            android:textSize="14sp" />
 
         <Button
-            android:id="@+id/btGuideHygiene"
+            android:id="@+id/btGuideLaver"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="Hygiene"
-            android:textSize="7sp" />
+            android:text="LAVER"
+            android:textSize="14sp" />
 
         <Button
             android:id="@+id/btGuideSortir"
@@ -59,6 +59,6 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="Sortir"
-            android:textSize="7sp" />
+            android:textSize="14sp" />
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".GUI.Nourir"
+    tools:context=".GUI.Actions.Nourir"
     tools:showIn="@layout/activity_nourir">
 
     <LinearLayout
@@ -37,14 +37,18 @@
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="1"
-                    app:srcCompat="@android:drawable/ic_lock_lock" />
+                    android:adjustViewBounds="true"
+                    android:background="@drawable/imageview_border"
+                    android:scaleType="fitCenter"
+                    app:srcCompat="@drawable/croquettes" />
 
                 <TextView
                     android:id="@+id/tvCroquettes"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="1"
-                    android:text="Croquettes" />
+                    android:text="Croquettes"
+                    android:textAlignment="center" />
 
             </LinearLayout>
 
@@ -59,14 +63,18 @@
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="1"
-                    app:srcCompat="@android:drawable/ic_lock_lock" />
+                    android:adjustViewBounds="true"
+                    android:background="@drawable/imageview_border"
+                    android:scaleType="fitCenter"
+                    app:srcCompat="@drawable/pate" />
 
                 <TextView
                     android:id="@+id/tvPate"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="1"
-                    android:text="Pâté" />
+                    android:text="Pâté"
+                    android:textAlignment="center" />
             </LinearLayout>
 
             <LinearLayout
@@ -80,14 +88,18 @@
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="1"
-                    app:srcCompat="@android:drawable/ic_lock_lock" />
+                    android:adjustViewBounds="true"
+                    android:background="@drawable/imageview_border"
+                    android:scaleType="fitCenter"
+                    app:srcCompat="@drawable/friandises" />
 
                 <TextView
                     android:id="@+id/tvFriandises"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="1"
-                    android:text="Friandises" />
+                    android:text="Friandises"
+                    android:textAlignment="center" />
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>

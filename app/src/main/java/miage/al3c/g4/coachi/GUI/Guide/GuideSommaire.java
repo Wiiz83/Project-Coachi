@@ -65,7 +65,7 @@ public class GuideSommaire extends AppCompatActivity {
             }
         });
 
-        BtnGuideLaver = findViewById(R.id.btGuideHygiene);
+        BtnGuideLaver = findViewById(R.id.btGuideLaver);
         BtnGuideLaver.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

@@ -138,8 +138,57 @@
 		"Jeux de mains, jeux de vilains, dit-on : est-ce vrai avec son chien ? Commençons par remettre les choses à leur place : votre chien jouera peu avec ses pattes; il utilisera donc ce que la nature a mis à sa disposition, à savoir sa gueule. Sa gueule est pleine de dents et a morsure inhibée est parfois difficile à tenir pour certains chiens dans le feu de l’action."
         "\n\n\n\n"
     </string>
-    <string name="guide_nourir">J\'ai compris</string>
-    <string name="guide_abreuver">J\'ai compris</string>
+    <string name="guide_nourir">
+		"Il existe 3 modes d’alimentation pour nourrir son chien : industrielle, maison ou mixte avec des rations à distribuer en 1, 2 ou 3 repas par jour. \n\n"
+
+		"<b>L’alimentation industrielle </b>\n"
+		"Ce type d’alimentation est constituée par les aliments dits humides comme les pâtées en boîtes ou en barquettes et par la nourriture sèche comme les croquettes. A l’heure actuelle, ce type d’alimentation est plébiscitée par 80% des propriétaires d’animaux de compagnie. A condition de bien savoir choisir ses produits, ce type d’alimentation est très pratique, offre de bonnes garanties en termes de composition et couvrent parfaitement les besoins nutritionnels des chiens de compagnie. \n\n"
+
+		"<b>L’alimentation « maison » </b>\n"
+		"L’alimentation « maison » est aussi connue sous le nom de « ration ménagère ». Comme son nom l’indique, elle consiste à préparer soi-même les repas de son chien. Mais attention : alimentation « maison » ne signifie pas donner les restes de tables à son chien, ni même lui faire manger les mêmes repas que ceux des membres humains de la famille. La ration ménagère doit être équilibrée (avec l’aide d’un vétérinaire) et adaptée aux besoins particuliers du carnivore non strict qu’est le chien. Quand elle bien équilibrée, l’alimentation maison est très qualitative. C’est même ce qu’il y a de mieux pour le chien, des points de vue nutritionnels et digestifs. Il existe des variantes de la ration ménagère « classique » : l’alimentation « BARF » pour « Biologically Appropriate Raw Food » et l’alimentation « Raw-feeding ». \n\n"
+
+		"<b>L’alimentation « mixte » </b>\n"
+		"L’alimentation mixte est un mélange des deux modes d’alimentation cités précédemment. Dans le cadre de ce mode d’alimentation, le chien peut par exemple recevoir des croquettes pour son premier repas de la journée le matin puis une ration ménagère pour son second repas du soir. \n"
+		"Pour faire votre choix entre l’un de ses 3 modes d’alimentation, nous vous conseillons de bien étudier les avantages et les inconvénients de chacun dans nos articles dédiés et de vous rapprocher, en cas de doute, de votre vétérinaire. \n\n"
+
+		"<b>Combien de repas par jour ? </b>\n"
+		"De façon générale, il est déconseillé de laisser au chien l’accès à sa nourriture à volonté afin de bien pouvoir contrôler ses apports. Les aliments, quel que soit le mode d’alimentation choisi, devront donc de préférence être distribués sous forme de repas. L’estomac très distensible d’un chien adulte sans problème de santé particulier l’autorise à ne faire qu’un seul repas par jour. \n"
+		"Mais, dans de nombreux cas, il est cependant conseillé de fractionner la ration journalière en 2 à 3 repas par jour : \n"
+		"- chez les animaux qui ont des besoins énergétiques importants comme les chiots pendant leur période de croissance, les chiennes gestantes et allaitantes et les chiens sportifs comme par exemple, les chiens de chasse, \n"
+		"- généralement quand la ration alimentaire est humide (pâtées, ration ménagère…) et donc plus volumineuse et particulièrement chez les chiens qui appartiennent à des grandes races pour limiter les risques de torsion de l’estomac auxquels ils sont plus sujets, \n"
+		"- chez les animaux qui souffrent de troubles gastro-intestinaux. Le fractionnement des repas leur garantira une digestion plus facile, \n"
+		"- chez les chiens qui sont particulièrement voraces naturellement (Labrador, Beagle…) ou qui ont des apports caloriques réduits dans le cadre d’un régime amaigrissant afin de leur éviter de trop ressentir la faim."
+		"\n\n\n\n"
+    </string>
+    <string name="guide_abreuver">
+		"Le poids, mais aussi la température extérieure, l’âge ou encore la nourriture, sont des facteurs qui déterminent les besoins en eau du chien. \n"
+		"Le chien est complètement indépendant pour satisfaire ses besoins en eau, qui sont importants. À condition qu’il ait en permanence de l’eau fraîche et propre à sa disposition. \n\n"
+
+		"<b>Les besoins en eau en fonction du poids </b>\n"
+		"besoins en eau du chien Avec un corps composé à 80 % d’eau, le chien a besoin de boire tout au long de la journée. Cela lui permet de réguler sa température corporelle, protéger ses organes, articulations et tissus, mieux digérer, éliminer les déchets, etc. Si l’on excepte les chiots qui, en période de croissance, boivent quasiment deux fois plus (proportionnellement bien entendu) que les chiens adultes, ces derniers ont besoin d’une certaine quantité d’eau quotidienne en fonction de leur poids. Concrètement, elle est de 50 à 70 ml par kilo. Un chien pesant 3 kg aura donc besoin de 150 à 225 ml, un animal de 10 kg de 500 à 750 ml, un chien de 30 kg de 1,5 à 2,25 litres. Quant à un chien de 80 kg, il va boire plus de 5 litres au quotidien. La variation dépend de plusieurs facteurs dont la nourriture du chien : les croquettes n’apportent que peu d’eau, la ration ménagère un peu plus, et la nourriture industrielle est composée à au moins 70 % d’eau. L’âge du chien est également important : le chiot, on l’a vu, boit plus mais le chien âgé ressent moins la soif. Quoi qu’il en soit, il est essentiel que le chien ait toujours à sa disposition une eau fraîche et propre, que les propriétaires changeront au moins toutes les douze heures. \n\n"
+
+		"<b>Les cas particuliers </b>\n"
+		"Dans certains cas particuliers, les chiens ont besoin de plus d’eau qu’à l’accoutumée. \n\n"
+
+		"S’IL FAIT TRÈS CHAUD \n"
+		"En période estivale, le chien ne va pas, comme nous, transpirer. L’eau (comme les pièces fraîches !) va donc jouer un grand rôle dans la régulation de sa température corporelle. Dès qu’il commence à faire chaud, vous pouvez installer plusieurs gamelles d’eau fraîche et changée plus souvent dans la maison. En promenade, des pauses régulières vont s’imposer. En voiture, vous pouvez utiliser un brumisateur ou un linge mouillé. \n\n"
+
+		"CHEZ LES FEMELLES \n"
+		"Les femelles en gestation ont également besoin de davantage d’eau, particulièrement dans le deuxième mois. Leur métabolisme est à ce moment-là plus actif. Cette situation va perdurer durant toute la période d’allaitement dès lors que l’eau, en plus de celle dont la chienne a besoin normalement, va favoriser la lactation. \n\n"
+
+		"<b>Que faire si le chien boit trop ou pas assez </b>\n"
+		"Sauf en cas de fortes chaleurs ou s’il a fait beaucoup d’exercice, un chien ne doit pas boire plus de 100 ml par kilo et par jour. Mesurer la quantité d’eau ingurgitée par son animal est un exercice simple à réaliser sur deux ou trois jours : il suffit de remplir sa gamelle à l’aide d’un verre mesureur et de soustraire avec le même contenant l’eau que l’on change. \n\n"
+
+		"SI LE CHIEN BOIT TROP \n"
+		"Toujours est-il qu’un chien qui boit trop est un chien qui souffre d’une affection appelée polydipsie. Mais s’il boit autant, c’est souvent qu’il urine davantage et cela peut signaler différentes maladies comme le diabète ou l’insuffisance rénale. Un chien qui passe son temps à boire peut également souffrir de potomanie, un trouble du comportement dû à une grande anxiété. \n\n"
+
+		"SI LE CHIEN NE BOIT PAS ASSEZ \n"
+		"À l’inverse, un chien qui ne boit pas assez – alors que nos compagnons gèrent eux-mêmes leur consommation – est certainement un chien difficile. Il y a quelque chose qui ne va pas ! Cela peut-être la gamelle, la fraîcheur de l’eau (changez-en plus souvent) ou même son goût (essayez avec de l’eau de source peu minéralisée). Aromatiser l’eau ou même fabriquer des glaçons avec du jus de viande est un bon moyen d’inciter un chien à boire davantage ; ils en sont friands ! \n\n"
+
+		"ATTENTION À LA DÉSHYDRATATION \n"
+		"Le plus gros risque encouru par le chien est la déshydratation. Les signes que présenterait alors votre compagnon sont des yeux enfoncés, un museau sec, tout comme les narines, un manque d’appétit et une apathie. Il est possible de vérifier que son chien n’est pas déshydraté en faisant le « test du pli de peau ». Pincez légèrement la peau du chien. Si elle se remet tout de suite en place, le chien n’est pas déshydraté ; si cela prend quelques secondes, il y a début de déshydratation ; plus longtemps, filez de toute urgence chez le vétérinaire. Ce dernier va lui administrer des fluides en intraveineuses, mais aussi vérifier par des examens complémentaires que la déshydratation n’est pas le symptôme d’une maladie plus grave."
+		"\n\n\n\n"
+    </string>
     <string name="guide_soigner">J\'ai compris</string>
     <string name="guide_laver">J\'ai compris</string>
     <string name="guide_sortir">

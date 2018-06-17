@@ -1,228 +1,244 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".GUI.Boutique"
+    tools:context=".GUI.Boutique.Boutique"
     tools:showIn="@layout/activity_boutique">
 
-    <TableLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-        <TableRow
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_weight="1"
-            android:baselineAligned="false"
-            android:gravity="center"
-            android:orientation="vertical">
+            android:gravity="center">
 
             <ImageView
                 android:id="@+id/imageView2"
-                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
                 android:layout_weight="1"
-                app:srcCompat="@mipmap/ic_launcher_round" />
+                app:srcCompat="@mipmap/ic_launcher_foreground" />
 
             <TextView
                 android:id="@+id/tvDepenses"
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Tes dépenses actuelles pour le mois en cours sont de 100€"
-                android:textSize="10sp" />
+                android:text="Vos dépenses actuelles sont de 100€"
+                android:textSize="14sp" />
 
-        </TableRow>
+        </LinearLayout>
 
-        <TableRow
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:layout_marginTop="10dp"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:orientation="vertical">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/tvNourritures"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Nourritures :"
-                    android:textAllCaps="false"
-                    android:textStyle="bold" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
-
-                        <ImageButton
-                            android:id="@+id/ibtN1"
-                            android:layout_width="match_parent"
-                            android:layout_height="0dp"
-                            android:layout_weight="1"
-                            app:srcCompat="@android:drawable/ic_lock_lock" />
-
-                        <TextView
-                            android:id="@+id/tvCroquettes"
-                            android:layout_width="match_parent"
-                            android:layout_height="0dp"
-                            android:layout_weight="1"
-                            android:text="Croquettes" />
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
-
-                        <ImageButton
-                            android:id="@+id/ibtN2"
-                            android:layout_width="match_parent"
-                            android:layout_height="0dp"
-                            android:layout_weight="1"
-                            app:srcCompat="@android:drawable/ic_lock_lock" />
-
-                        <TextView
-                            android:id="@+id/tvPate"
-                            android:layout_width="match_parent"
-                            android:layout_height="0dp"
-                            android:layout_weight="1"
-                            android:text="Pâté" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
-
-                        <ImageButton
-                            android:id="@+id/ibtN3"
-                            android:layout_width="match_parent"
-                            android:layout_height="0dp"
-                            android:layout_weight="1"
-                            app:srcCompat="@android:drawable/ic_lock_lock" />
-
-                        <TextView
-                            android:id="@+id/tvFriandises"
-                            android:layout_width="match_parent"
-                            android:layout_height="0dp"
-                            android:layout_weight="1"
-                            android:text="Friandises" />
-                    </LinearLayout>
-                </LinearLayout>
-            </LinearLayout>
-
-        </TableRow>
-
-        <TableRow
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="10dp"
             android:layout_weight="1"
-            android:gravity="center">
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvNourritures"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Nourritures :"
+                android:textAlignment="center"
+                android:textAllCaps="false"
+                android:textStyle="bold" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/tvAccessoires"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Accessoires :"
-                    android:textAllCaps="false"
-                    android:textStyle="bold" />
+                android:layout_marginTop="10dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:orientation="horizontal">
+                    android:layout_weight="1"
+                    android:orientation="vertical">
 
-                    <LinearLayout
+                    <ImageButton
+                        android:id="@+id/ibtN1"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
+                        android:layout_height="0dp"
                         android:layout_weight="1"
-                        android:orientation="vertical">
+                        android:adjustViewBounds="true"
+                        android:background="@drawable/imageview_border"
+                        android:scaleType="fitCenter"
+                        android:visibility="visible"
+                        app:srcCompat="@drawable/croquettes" />
 
-                        <ImageButton
-                            android:id="@+id/ibtA1"
-                            android:layout_width="match_parent"
-                            android:layout_height="0dp"
-                            android:layout_weight="1"
-                            app:srcCompat="@android:drawable/ic_lock_lock" />
-
-                        <TextView
-                            android:id="@+id/tyvPanierJouets"
-                            android:layout_width="match_parent"
-                            android:layout_height="0dp"
-                            android:layout_weight="1"
-                            android:text="Panier et Jouets" />
-                    </LinearLayout>
-
-                    <LinearLayout
+                    <TextView
+                        android:id="@+id/tvCroquettes"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
+                        android:layout_height="0dp"
                         android:layout_weight="1"
-                        android:orientation="vertical">
+                        android:text="Croquettes - 3€"
+                        android:textAlignment="center" />
 
-                        <ImageButton
-                            android:id="@+id/ibtA2"
-                            android:layout_width="match_parent"
-                            android:layout_height="0dp"
-                            android:layout_weight="1"
-                            app:srcCompat="@android:drawable/ic_lock_lock" />
+                </LinearLayout>
 
-                        <TextView
-                            android:id="@+id/tvLaisseColiers"
-                            android:layout_width="match_parent"
-                            android:layout_height="0dp"
-                            android:layout_weight="1"
-                            android:text="Laisses et Colliers" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
 
-                    </LinearLayout>
-
-                    <LinearLayout
+                    <ImageButton
+                        android:id="@+id/ibtN2"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
+                        android:layout_height="0dp"
                         android:layout_weight="1"
-                        android:orientation="vertical">
+                        android:adjustViewBounds="true"
+                        android:background="@drawable/imageview_border"
+                        android:scaleType="fitCenter"
+                        app:srcCompat="@drawable/pate" />
 
-                        <ImageButton
-                            android:id="@+id/ibtA3"
-                            android:layout_width="match_parent"
-                            android:layout_height="0dp"
-                            android:layout_weight="1"
-                            app:srcCompat="@android:drawable/ic_lock_lock" />
+                    <TextView
+                        android:id="@+id/tvPate"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:text="Pâté - 5€"
+                        android:textAlignment="center" />
+                </LinearLayout>
 
-                        <TextView
-                            android:id="@+id/tvProduitsBrosse"
-                            android:layout_width="match_parent"
-                            android:layout_height="0dp"
-                            android:layout_weight="1"
-                            android:text="Produits et Brosses" />
-                    </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <ImageButton
+                        android:id="@+id/ibtN3"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:adjustViewBounds="true"
+                        android:background="@drawable/imageview_border"
+                        android:scaleType="fitCenter"
+                        app:srcCompat="@drawable/friandises" />
+
+                    <TextView
+                        android:id="@+id/tvFriandises"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:text="Friandises - 2€"
+                        android:textAlignment="center" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvAccessoires"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Accessoires :"
+                android:textAlignment="center"
+                android:textAllCaps="false"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <ImageButton
+                        android:id="@+id/ibtA1"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:adjustViewBounds="true"
+                        android:background="@drawable/imageview_border"
+                        android:scaleType="fitCenter"
+                        app:srcCompat="@drawable/jouet" />
+
+                    <TextView
+                        android:id="@+id/tyvPanierJouets"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:text="Jouet - 10€"
+                        android:textAlignment="center" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <ImageButton
+                        android:id="@+id/ibtA2"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:adjustViewBounds="true"
+                        android:background="@drawable/imageview_border"
+                        android:scaleType="fitCenter"
+                        app:srcCompat="@drawable/collier" />
+
+                    <TextView
+                        android:id="@+id/tvLaisseColiers"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:text="Collier - 20€"
+                        android:textAlignment="center" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <ImageButton
+                        android:id="@+id/ibtA3"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:adjustViewBounds="true"
+                        android:background="@drawable/imageview_border"
+                        android:scaleType="fitCenter"
+                        app:srcCompat="@drawable/brosse" />
+
+                    <TextView
+                        android:id="@+id/tvProduitsBrosse"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:text="Brosse - 15€"
+                        android:textAlignment="center" />
                 </LinearLayout>
             </LinearLayout>
 
-        </TableRow>
+        </LinearLayout>
 
-    </TableLayout>
+    </LinearLayout>
 
-</FrameLayout>
+</android.support.constraint.ConstraintLayout>

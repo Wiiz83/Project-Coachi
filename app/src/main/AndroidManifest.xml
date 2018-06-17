@@ -16,7 +16,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".GUI.Connexion"
+            android:name=".GUI.Connexion.Connexion"
             android:label="@string/title_activity_connexion"
             android:screenOrientation="portrait">
             <intent-filter>
@@ -25,43 +25,43 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".GUI.Laver"
+            android:name=".GUI.Actions.Laver"
             android:label="@string/title_activity_laver"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".GUI.Boutique"
+            android:name=".GUI.Boutique.Boutique"
             android:label="@string/title_activity_boutique"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".GUI.AnimalPerso"
+            android:name=".GUI.Accueil.AnimalPerso"
             android:label="@string/title_activity_animal"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".GUI.Nourir"
+            android:name=".GUI.Actions.Nourir"
             android:label="@string/title_activity_nourir"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".GUI.Abreuver"
+            android:name=".GUI.Actions.Abreuver"
             android:label="@string/title_activity_abreuver"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".GUI.Jouer"
+            android:name=".GUI.Actions.Jouer"
             android:label="@string/title_activity_jouer"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".GUI.Sortir"
+            android:name=".GUI.Actions.Sortir"
             android:label="@string/title_activity_sortir"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".GUI.Soigner"
+            android:name=".GUI.Actions.Soigner"
             android:label="@string/title_activity_soigner"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />

@@ -1,16 +1,8 @@
 package miage.al3c.g4.coachi;
 
-import android.content.SharedPreferences;
-import android.preference.PreferenceManager;
-
 
 import java.util.Date;
 import java.util.Random;
-
-import miage.al3c.g4.coachi.Enum.Entrainement;
-import miage.al3c.g4.coachi.Enum.Jeu;
-import miage.al3c.g4.coachi.Utilitaire.Maladie;
-import miage.al3c.g4.coachi.Utilitaire.RaceChien;
 
 public class Chien extends Animal {
 
