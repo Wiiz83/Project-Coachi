@@ -18,20 +18,20 @@ public class TimerChien extends CountDownTimer {
     private DEST destiation  = DEST.BED1;
 
     public TimerChien(ControlleurChien3D chien) {
-       super(9999999,15000);
+       super(9999999,20000);
        this.chien = chien;
    }
 
 
     @Override
     public void onTick(long millisUntilFinished) {
-        destiation = destiation.next();
         switch ( destiation ) {
             case BED1: chien.goToBed1();break;
             case BED2: chien.goToBed2();break;
-            case CENTER: chien.goToCenter();
+         //   case CENTER: chien.goToCenter();
             default: break;
         }
+        destiation = destiation.next();
     }
 
     @Override

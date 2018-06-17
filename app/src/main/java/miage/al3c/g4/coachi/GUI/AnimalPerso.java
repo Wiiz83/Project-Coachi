@@ -230,6 +230,7 @@ public class AnimalPerso extends AppCompatActivity {
     }
 
     public void waitForBonus(final Bundle extras, final String message) {
+        timerChien = new TimerChien(controlleurChien3D);
         final Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
             @Override
@@ -240,9 +241,8 @@ public class AnimalPerso extends AppCompatActivity {
                 saveChanges();
                 rereshStatusChien();
                 messageToast(message);
-                timerChien = new TimerChien(controlleurChien3D);
-                timerChien.start();
                 controlleurScene.ShowAnimal(true);
+                timerChien.start();
             }
         }, 10000);
     }
