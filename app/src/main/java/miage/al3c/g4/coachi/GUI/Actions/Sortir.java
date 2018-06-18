@@ -65,17 +65,18 @@ public class Sortir extends AppCompatActivity {
         btnSortir.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                sortir(-20, 5, 30);
+                sortir(-20, 5, 30, "Normal");
             }
         });
     }
 
-    public void sortir(int energie, int sante, int moral){
+    public void sortir(int energie, int sante, int moral, String etat){
         Intent intent = new Intent(Sortir.this, AnimalPerso.class);
         intent.putExtra("Action", "Sortir");
         intent.putExtra("EnergieBonus", energie);
         intent.putExtra("SanteBonus", sante);
         intent.putExtra("MoralBonus", moral);
+        intent.putExtra("Etat", etat);
         finish();
         startActivity(intent);
     }

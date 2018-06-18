@@ -165,7 +165,7 @@
 		"Le chien est complètement indépendant pour satisfaire ses besoins en eau, qui sont importants. À condition qu’il ait en permanence de l’eau fraîche et propre à sa disposition. \n\n"
 
 		"<b>Les besoins en eau en fonction du poids </b>\n"
-		"besoins en eau du chien Avec un corps composé à 80 % d’eau, le chien a besoin de boire tout au long de la journée. Cela lui permet de réguler sa température corporelle, protéger ses organes, articulations et tissus, mieux digérer, éliminer les déchets, etc. Si l’on excepte les chiots qui, en période de croissance, boivent quasiment deux fois plus (proportionnellement bien entendu) que les chiens adultes, ces derniers ont besoin d’une certaine quantité d’eau quotidienne en fonction de leur poids. Concrètement, elle est de 50 à 70 ml par kilo. Un chien pesant 3 kg aura donc besoin de 150 à 225 ml, un animal de 10 kg de 500 à 750 ml, un chien de 30 kg de 1,5 à 2,25 litres. Quant à un chien de 80 kg, il va boire plus de 5 litres au quotidien. La variation dépend de plusieurs facteurs dont la nourriture du chien : les croquettes n’apportent que peu d’eau, la ration ménagère un peu plus, et la nourriture industrielle est composée à au moins 70 % d’eau. L’âge du chien est également important : le chiot, on l’a vu, boit plus mais le chien âgé ressent moins la soif. Quoi qu’il en soit, il est essentiel que le chien ait toujours à sa disposition une eau fraîche et propre, que les propriétaires changeront au moins toutes les douze heures. \n\n"
+		"Avec un corps composé à 80 % d’eau, le chien a besoin de boire tout au long de la journée. Cela lui permet de réguler sa température corporelle, protéger ses organes, articulations et tissus, mieux digérer, éliminer les déchets, etc. Si l’on excepte les chiots qui, en période de croissance, boivent quasiment deux fois plus (proportionnellement bien entendu) que les chiens adultes, ces derniers ont besoin d’une certaine quantité d’eau quotidienne en fonction de leur poids. Concrètement, elle est de 50 à 70 ml par kilo. Un chien pesant 3 kg aura donc besoin de 150 à 225 ml, un animal de 10 kg de 500 à 750 ml, un chien de 30 kg de 1,5 à 2,25 litres. Quant à un chien de 80 kg, il va boire plus de 5 litres au quotidien. La variation dépend de plusieurs facteurs dont la nourriture du chien : les croquettes n’apportent que peu d’eau, la ration ménagère un peu plus, et la nourriture industrielle est composée à au moins 70 % d’eau. L’âge du chien est également important : le chiot, on l’a vu, boit plus mais le chien âgé ressent moins la soif. Quoi qu’il en soit, il est essentiel que le chien ait toujours à sa disposition une eau fraîche et propre, que les propriétaires changeront au moins toutes les douze heures. \n\n"
 
 		"<b>Les cas particuliers </b>\n"
 		"Dans certains cas particuliers, les chiens ont besoin de plus d’eau qu’à l’accoutumée. \n\n"
@@ -190,7 +190,27 @@
 		"\n\n\n\n"
     </string>
     <string name="guide_soigner">J\'ai compris</string>
-    <string name="guide_laver">J\'ai compris</string>
+    <string name="guide_laver">
+        "<b>Il est possible de laver son chien dès que nécessaire, dès lors que l’on utilise un shampoing adapté. </b>\n"
+		"Le pH des chiens est différent de celui des humains. C’est la raison pour laquelle il est essentiel de n’utiliser que des shampoings adaptés. \n"
+		"Il n’y a pas de règle toute établie quand au rythme des lavages. Une fois par mois en moyenne… ou davantage. En fait, tout dépend de l’état de salissure du poil. \n"
+		"Différents produits sont disponibles, en fonction de la nature du poil. \n\n"
+
+		"<b>Démêler avant de laver </b>\n"
+		"Chez les chiens à poil long un bon démêlage avant de procéder au lavage est indiqué. Les bourres et les nœuds seront également coupés au préalable. \n"
+		"Le bain n’est pas toujours une partie de plaisir et le maître devra prendre certaines précautions afin d’éviter les morsures. \n"
+		"Cela se passe généralement assez facilement avec un chien. Dans tous les cas, plus tôt on habitue son chien à être lavé, plus cela peut faciliter la tâche par la suite. \n"
+		"Il faut procéder en douceur et avant tout vérifier que l’eau ne soit pas trop chaude (ni trop froide). Les gestes ne seront pas brusques et il est tout à fait possible de rassurer son compagnon en lui parlant avec douceur. \n\n"
+
+		"<b>Mouiller, frictionner, rincer et sécher </b>\n"
+		"Après avoir bien mouillé l’animal (en évitant les yeux et les oreilles), on applique le produit (sur la ligne du dos) et on le fait bien mousser. Sans oublier le ventre, les pattes, le cou… Un temps de pose de quelques minutes peut être recommandé. \n"
+		"Ensuite, un bon rinçage devra permettre l’élimination de tout le produit. Une seconde application de shampoing si le chien est vraiment sale peut être effectuée, toujours suivie d’un bon rinçage (l’eau doit devenir claire, ce qui indique que tout le shampoing est bien éliminé). \n"
+		"Le chien a souvent le réflexe de s’ébrouer. Mais cela ne suffit pas au séchage. Celui-ci sera la dernière étape d’un bon lavage. A la serviette ou bien encore à l’aide d’un sèche-cheveux, en veillant à la température de l’air soufflé par l’appareil. Ne pas approcher ce dernier trop près du corps de l’animal, et ne pas diriger l’air vers sa tête. \n"
+		"Un après-shampoing adapté, là aussi en fonction de la nature du poil, pourra être utilisé. \n"
+		"Enfin, chez les animaux âgés ou bien encore convalescents, il sera possible d’utiliser un shampoing à sec. Demandez conseil à votre vétérinaire et à son équipe. \n"
+		"A noter qu’il est possible d’acheter le shampoing de son compagnon chez le vétérinaire grâce au forfait prévention contenu dans certaines formules d’assurance santé animale. "
+        "\n\n\n\n"
+    </string>
     <string name="guide_sortir">
         "<b>Choisir les bons accessoires </b>\n"
 		"Demandez conseil à votre vétérinaire. Il saura vous orienter et vous suggérer les modèles de laisses et de colliers adaptés à votre chien. \n"

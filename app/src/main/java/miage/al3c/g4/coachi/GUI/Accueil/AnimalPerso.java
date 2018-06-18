@@ -15,6 +15,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -27,33 +28,36 @@ import com.unity3d.player.UnityPlayer;
 
 import miage.al3c.g4.coachi.Animal;
 import miage.al3c.g4.coachi.GUI.Actions.Abreuver;
-import miage.al3c.g4.coachi.GUI.Boutique.Boutique;
-import miage.al3c.g4.coachi.GUI.Connexion.Connexion;
-import miage.al3c.g4.coachi.GUI.Guide.GuideSommaire;
 import miage.al3c.g4.coachi.GUI.Actions.Jouer;
 import miage.al3c.g4.coachi.GUI.Actions.Laver;
 import miage.al3c.g4.coachi.GUI.Actions.Nourir;
 import miage.al3c.g4.coachi.GUI.Actions.Soigner;
 import miage.al3c.g4.coachi.GUI.Actions.Sortir;
+import miage.al3c.g4.coachi.GUI.Boutique.Boutique;
+import miage.al3c.g4.coachi.GUI.Connexion.Connexion;
+import miage.al3c.g4.coachi.GUI.Guide.GuideSommaire;
 import miage.al3c.g4.coachi.R;
 import miage.al3c.g4.coachi.TimerChien;
 import miage.al3c.g4.coachi.Utilisateur;
 
 public class AnimalPerso extends AppCompatActivity {
 
-    Button btnBoutique, btnGuideSommaire, btnDeconnexion, btnJouer, btnNourir, BtnAbreuver, BtnSoigner, BtnLaver, BtnSortir;
-    TextView textviewNom, textViewAge, textViewEnergieP, textViewSanteP, textViewMoralP;
+    Button btnBoutique, btnGuideSommaire, btnDeconnexion, btnAgir;
+    ImageButton btnJouer, btnNourir, btnAbreuver, btnSoigner, btnLaver, btnSortir;
+    TextView textviewSommePossedee, textviewPointsUtilisateur, textviewNom, textViewAge, textViewEnergieP, textViewSanteP, textViewMoralP, textViewEtat;
     ProgressBar pbEnergie, pbSante, pbMoral;
+    LinearLayout llEtat;
+    TimerChien timerChien;
     private SharedPreferences myPrefs;
     private SharedPreferences.Editor myPrefsEditor;
     private Gson gson = new Gson();
     private Utilisateur utilisateur;
     private Animal animal;
-
+    private String txtEtat = "Etat du chien : ";
     private UnityPlayer mUnityPlayer;
     private ControlleurChien3D controlleurChien3D;
     private SceneController controlleurScene;
-    TimerChien timerChien;
+
     public AnimalPerso() {
     }
 
@@ -71,7 +75,7 @@ public class AnimalPerso extends AppCompatActivity {
 
         // Unity
         LinearLayout layoutUnity = (LinearLayout) findViewById(R.id.llUnity);
-        int height = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, 300, getResources().getDisplayMetrics());
+        int height = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 300, getResources().getDisplayMetrics());
         layoutUnity.addView(mUnityPlayer, 0, new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, height));
 
         // Récupération SharedPreferences
@@ -141,8 +145,8 @@ public class AnimalPerso extends AppCompatActivity {
             }
         });
 
-        BtnAbreuver = findViewById(R.id.btAbreuver);
-        BtnAbreuver.setOnClickListener(new View.OnClickListener() {
+        btnAbreuver = findViewById(R.id.btAbreuver);
+        btnAbreuver.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent goToAbreuver;
@@ -151,8 +155,8 @@ public class AnimalPerso extends AppCompatActivity {
             }
         });
 
-        BtnSoigner = findViewById(R.id.btSoigner);
-        BtnSoigner.setOnClickListener(new View.OnClickListener() {
+        btnSoigner = findViewById(R.id.btSoigner);
+        btnSoigner.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent goToSoigner;
@@ -160,10 +164,11 @@ public class AnimalPerso extends AppCompatActivity {
                 startActivity(goToSoigner);
             }
         });
-        BtnSoigner.setClickable(false);
+        btnSoigner.setAlpha(.5f);
+        btnSoigner.setClickable(false);
 
-        BtnLaver = findViewById(R.id.btLaver);
-        BtnLaver.setOnClickListener(new View.OnClickListener() {
+        btnLaver = findViewById(R.id.btLaver);
+        btnLaver.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent goToLaver;
@@ -172,8 +177,8 @@ public class AnimalPerso extends AppCompatActivity {
             }
         });
 
-        BtnSortir = findViewById(R.id.btSortir);
-        BtnSortir.setOnClickListener(new View.OnClickListener() {
+        btnSortir = findViewById(R.id.btSortir);
+        btnSortir.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent goToSortir;
@@ -182,9 +187,17 @@ public class AnimalPerso extends AppCompatActivity {
             }
         });
 
-        // Initialisation Nom et Age
+        btnAgir = findViewById(R.id.btAgir);
+
+        // Initialisation LinearLayout
+
+        llEtat = findViewById(R.id.llEtat);
+        llEtat.setVisibility(View.GONE);
+
 
         // Initialisation Données Chien
+        textviewSommePossedee = findViewById(R.id.tvSommePossedee);
+        textviewPointsUtilisateur = findViewById(R.id.tvPointsutilisateur);
         textviewNom = findViewById(R.id.tvNom);
         textViewAge = findViewById(R.id.tvAge);
         pbEnergie = findViewById(R.id.pbEnergie);
@@ -193,6 +206,7 @@ public class AnimalPerso extends AppCompatActivity {
         textViewSanteP = findViewById(R.id.tvSanteP);
         pbMoral = findViewById(R.id.pbMoral);
         textViewMoralP = findViewById(R.id.tvMoralP);
+        textViewEtat = findViewById(R.id.tvEtat);
         rereshStatusChien();
 
         controlleurChien3D = new ControlleurChien3D();
@@ -213,7 +227,7 @@ public class AnimalPerso extends AppCompatActivity {
         switch (extras.getString("Action")) {
             case "Jouer":
                 controlleurChien3D.goToCenterAndPlay();
-                waitForBonus(extras,  animal.getNom() + " a fini de jouer. Il remue la queue.");
+                waitForBonus(extras, animal.getNom() + " a fini de jouer. Il remue la queue.");
                 break;
             case "Nourir":
                 controlleurChien3D.goToBowlAndEat();
@@ -224,16 +238,22 @@ public class AnimalPerso extends AppCompatActivity {
                 waitForBonus(extras, animal.getNom() + " a fini de boire.");
                 break;
             case "Soigner":
-                controlleurChien3D.goToBowlAndEat();
-                waitForBonus(extras, animal.getNom() + " a était remis à neuf par le vétérianaire.");
+                controlleurScene.ShowAnimal(false);
+                waitForBonus(extras, animal.getNom() + " a était remis à neuf par le vétérinaire.");
                 break;
             case "Laver":
-                controlleurChien3D.goToBowlAndEat();
+                controlleurScene.ShowAnimal(false);
                 waitForBonus(extras, animal.getNom() + " est tout propre.");
                 break;
             case "Sortir":
-                controlleurScene.ShowAnimal (false);
+                controlleurScene.ShowAnimal(false);
                 waitForBonus(extras, animal.getNom() + " a fini sa promenade.");
+                break;
+            case "Boutique":
+                utilisateur.setSommmeDepensee(utilisateur.getSommmeDepensee() + extras.getInt("SommmeDepensee"));
+                utilisateur.setSommePossedee(utilisateur.getSommePossedee() - extras.getInt("SommmeDepensee"));
+                textviewSommePossedee.setText(utilisateur.getSommePossedee() + " ");
+                update();
                 break;
             default:
                 break;
@@ -247,14 +267,20 @@ public class AnimalPerso extends AppCompatActivity {
             @Override
             public void run() {
                 controlleurChien3D.stopMovement();
-                animal.addBonus(extras.getInt("EnergieBonus"), extras.getInt("SanteBonus"), extras.getInt("MoralBonus"));
-                saveChanges();
-                rereshStatusChien();
+                animal.addBonus(extras.getInt("EnergieBonus"), extras.getInt("SanteBonus"), extras.getInt("MoralBonus"), extras.getString("Etat"));
+                utilisateur.setPointsUtilisateurs(utilisateur.getPointsUtilisateurs() + 50);
+                textviewPointsUtilisateur.setText(utilisateur.getPointsUtilisateurs() + " ");
+                update();
                 messageToast(message);
                 controlleurScene.ShowAnimal(true);
                 timerChien.start();
             }
         }, 10000);
+    }
+
+    public void update(){
+        rereshStatusChien();
+        saveChanges();
     }
 
     public void saveChanges() {
@@ -264,6 +290,9 @@ public class AnimalPerso extends AppCompatActivity {
     }
 
     public void rereshStatusChien() {
+        llEtat.setVisibility(View.GONE);
+        btnSoigner.setAlpha(.5f);
+        btnSoigner.setClickable(false);
         textviewNom.setText(animal != null ? "Nom : " + animal.getNom() : "Nom : Nom du Chien");
         textViewAge.setText(animal != null ? "Age : " + animal.getAge() : "Age : Age du Chien");
         pbEnergie.setProgress(animal != null ? animal.getEnergieP() : 50);
@@ -272,6 +301,43 @@ public class AnimalPerso extends AppCompatActivity {
         textViewSanteP.setText(animal != null ? animal.getSanteP() + " / 100" : "50 / 100");
         pbMoral.setProgress(animal != null ? animal.getMoralP() : 50);
         textViewMoralP.setText(animal != null ? animal.getMoralP() + " / 100" : "50 / 100");
+        if (animal != null && !animal.getEtat().equals("Normal")) {
+            utilisateur.setPointsUtilisateurs(utilisateur.getPointsUtilisateurs() - 150);
+            textviewPointsUtilisateur.setText(utilisateur.getPointsUtilisateurs() + " ");
+            showIssue(animal.getEtat());
+        }
+    }
+
+    public void showIssue(String etat) {
+        textViewEtat.setText(txtEtat + etat);
+        llEtat.setVisibility(View.VISIBLE);
+        Intent goToAgir = null;
+        switch (etat) {
+            case "Fatigué":
+                goToAgir = new Intent(AnimalPerso.this, Nourir.class);
+                break;
+            case "Malade":
+                btnSoigner.setAlpha(1f);
+                btnSoigner.setClickable(true);
+                goToAgir = new Intent(AnimalPerso.this, Soigner.class);
+                break;
+            case "Malheureux":
+                if (animal.getEnergieP() > 50)
+                    goToAgir = new Intent(AnimalPerso.this, Sortir.class);
+                else
+                    goToAgir = new Intent(AnimalPerso.this, Jouer.class);
+                break;
+            default:
+                break;
+        }
+        final Intent finalGoToAgir = goToAgir;
+        btnAgir.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(finalGoToAgir);
+            }
+        });
+
     }
 
 

@@ -65,17 +65,18 @@ public class Soigner extends AppCompatActivity {
         btnSoigner.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                soigner(0,100,-20);
+                soigner(0,100,-20, "Normal");
             }
         });
     }
 
-    public void soigner(int energie, int sante, int moral){
+    public void soigner(int energie, int sante, int moral, String etat){
         Intent intent = new Intent(Soigner.this, AnimalPerso.class);
         intent.putExtra("Action", "Soigner");
         intent.putExtra("EnergieBonus", energie);
         intent.putExtra("SanteBonus", sante);
         intent.putExtra("MoralBonus", moral);
+        intent.putExtra("Etat", etat);
         finish();
         startActivity(intent);
     }

@@ -65,17 +65,18 @@ public class Abreuver extends AppCompatActivity {
         btnAbreuver.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                abreuver(10, 5, 5);
+                abreuver(10, 5, 5, "Normal");
             }
         });
     }
 
-    public void abreuver(int energie, int sante, int moral){
+    public void abreuver(int energie, int sante, int moral, String etat){
         Intent intent = new Intent(Abreuver.this, AnimalPerso.class);
         intent.putExtra("Action", "Abreuver");
         intent.putExtra("EnergieBonus", energie);
         intent.putExtra("SanteBonus", sante);
         intent.putExtra("MoralBonus", moral);
+        intent.putExtra("Etat", etat);
         finish();
         startActivity(intent);
     }

@@ -65,17 +65,18 @@ public class Jouer extends AppCompatActivity {
         btnJouer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                jouer(10, 5, 20);
+                jouer(10, 5, 20, "Normal");
             }
         });
     }
 
-    public void jouer(int energie, int sante, int moral){
+    public void jouer(int energie, int sante, int moral, String etat){
         Intent intent = new Intent(Jouer.this, AnimalPerso.class);
         intent.putExtra("Action", "Jouer");
         intent.putExtra("EnergieBonus", energie);
         intent.putExtra("SanteBonus", sante);
         intent.putExtra("MoralBonus", moral);
+        intent.putExtra("Etat", etat);
         finish();
         startActivity(intent);
     }

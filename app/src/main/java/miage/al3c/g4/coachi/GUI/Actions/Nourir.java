@@ -22,7 +22,7 @@ import miage.al3c.g4.coachi.Utilisateur;
 public class Nourir extends AppCompatActivity {
 
     Button btnWikiNourir, btnNourir;
-    ImageButton btnNourrir1, btnNourrir2, btnNourrir3;
+    ImageButton btnNourrir1, btnNourrir2, btnNourrir3, btnNourrir4;
 
     private SharedPreferences myPrefs;
     private SharedPreferences.Editor myPrefsEditor;
@@ -67,7 +67,7 @@ public class Nourir extends AppCompatActivity {
         btnNourrir1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                nourir(15, 5, 10);
+                nourir(15, 15, 5, "Normal");
             }
         });
 
@@ -75,7 +75,7 @@ public class Nourir extends AppCompatActivity {
         btnNourrir2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                nourir(15, 5, 10);
+                nourir(20, 20, 10, "Normal");
             }
         });
 
@@ -83,17 +83,26 @@ public class Nourir extends AppCompatActivity {
         btnNourrir3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                nourir(15, 5, 10);
+                nourir(5, 5, 15, "Normal");
+            }
+        });
+
+        btnNourrir4 = findViewById(R.id.ibtNourir4);
+        btnNourrir4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                nourir(0, -50, 5, "Malade");
             }
         });
     }
 
-    public void nourir(int energie, int sante, int moral){
+    public void nourir(int energie, int sante, int moral, String etat){
         Intent intent = new Intent(Nourir.this, AnimalPerso.class);
         intent.putExtra("Action", "Nourir");
         intent.putExtra("EnergieBonus", energie);
         intent.putExtra("SanteBonus", sante);
         intent.putExtra("MoralBonus", moral);
+        intent.putExtra("Etat", etat);
         finish();
         startActivity(intent);
     }

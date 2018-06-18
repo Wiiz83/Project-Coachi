@@ -65,17 +65,18 @@ public class Laver extends AppCompatActivity {
         btnLaver.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                laver(0, 5, 10);
+                laver(0, 5, 10, "Normal");
             }
         });
     }
 
-    public void laver(int energie, int sante, int moral) {
+    public void laver(int energie, int sante, int moral, String etat) {
         Intent intent = new Intent(Laver.this, AnimalPerso.class);
         intent.putExtra("Action", "Laver");
         intent.putExtra("EnergieBonus", energie);
         intent.putExtra("SanteBonus", sante);
         intent.putExtra("MoralBonus", moral);
+        intent.putExtra("Etat", etat);
         finish();
         startActivity(intent);
     }

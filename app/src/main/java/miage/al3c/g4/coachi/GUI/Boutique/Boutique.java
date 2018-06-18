@@ -1,11 +1,11 @@
 package miage.al3c.g4.coachi.GUI.Boutique;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
@@ -13,13 +13,17 @@ import android.widget.TextView;
 
 import com.google.gson.Gson;
 
+import miage.al3c.g4.coachi.GUI.Accueil.AnimalPerso;
 import miage.al3c.g4.coachi.R;
 import miage.al3c.g4.coachi.Utilisateur;
 
 public class Boutique extends AppCompatActivity {
 
-    ImageButton btnNourritures1, btnNourritures2, btnNourritures3, btnAccessoires1, btnAccessoires2, btnAccessoires3;
-    TextView txtviewDepenses;
+    private ImageButton btnNourritures1, btnNourritures2, btnNourritures3, btnAccessoires1, btnAccessoires2, btnAccessoires3;
+    private TextView txtviewDepenses;
+    private int sommeDepensee;
+
+
     private SharedPreferences myPrefs;
     private SharedPreferences.Editor myPrefsEditor;
     private Gson gson = new Gson();
@@ -44,7 +48,6 @@ public class Boutique extends AppCompatActivity {
         // Récupérer l'utilisateur
         String json = myPrefs.getString("Utilisateur", "");
         utilisateur = gson.fromJson(json, Utilisateur.class);
-        Log.d("TESTGUI", "(Create)utilisateur dépenses : " + utilisateur.getSommmeDepensee());
 
         //Initialisations Boutons
         txtviewDepenses = findViewById(R.id.tvDepenses);
@@ -98,17 +101,28 @@ public class Boutique extends AppCompatActivity {
                 addItem("Brosse", 1, 15);
             }
         });
+
+        sommeDepensee = 0;
     }
 
     private void addItem(String nomItem, int toAdd, int prixItem) {
         utilisateur.getInventaire().addItem(nomItem, toAdd);
+        sommeDepensee += prixItem;
         utilisateur.setSommmeDepensee(utilisateur.getSommmeDepensee() + prixItem);
         txtviewDepenses.setText(txtDepenses + utilisateur.getSommmeDepensee() + "€");
 
         String jsonUtilisateur = gson.toJson(utilisateur);
         myPrefsEditor.putString("Utilisateur", jsonUtilisateur);
         myPrefsEditor.apply();
-        Log.d("TESTGUI", "(addItem)utilisateur dépenses : " + utilisateur.getSommmeDepensee());
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(Boutique.this, AnimalPerso.class);
+        intent.putExtra("Action", "Boutique");
+        intent.putExtra("SommmeDepensee", sommeDepensee);
+        finish();
+        startActivity(intent);
     }
 
 }

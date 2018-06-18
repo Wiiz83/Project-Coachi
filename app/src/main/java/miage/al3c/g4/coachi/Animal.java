@@ -2,6 +2,7 @@ package miage.al3c.g4.coachi;
 
 import java.util.Date;
 
+import static java.lang.Math.max;
 import static java.lang.Math.min;
 
 public class Animal {
@@ -12,13 +13,15 @@ public class Animal {
     private int santeP;
     private int moralP;
     private Date lastJouer, lastNourir, lastAbreuver, lastSoigner, lastLaver, lastSortir;
+    private String etat;
 
     public Animal() {
         this.nom = "Pongo";
         this.age = 4;
-        this.energieP = 100;
-        this.santeP = 100;
-        this.moralP = 100;
+        this.energieP = 50;
+        this.santeP = 50;
+        this.moralP = 50;
+        this.etat = "Normal";
     }
 
     public Animal(String nom, int age) {
@@ -27,6 +30,7 @@ public class Animal {
         this.energieP = 50;
         this.santeP = 50;
         this.moralP = 50;
+        this.etat = "Normal";
     }
 
     public String getNom() {
@@ -49,13 +53,20 @@ public class Animal {
         return moralP;
     }
 
-    public void addBonus(int energie, int sante, int moral) {
-        this.energieP = min(100, this.energieP + energie);
-        this.santeP = min(100, this.santeP + sante);
-        this.moralP = min(100, this.moralP + moral);
+    public void addBonus(int energie, int sante, int moral, String etat) {
+        this.energieP = max(0, min(100, this.energieP + energie));
+        this.santeP = max(0, min(100, this.santeP + sante));
+        this.moralP = max(0, min(100, this.moralP + moral));
+        this.etat = etat;
+        if (this.energieP <= 20)
+            this.etat = "Fatigué";
+        if (this.santeP <= 20)
+            this.etat = "Malade";
+        if (this.moralP <= 20)
+            this.etat = "Malheureux";
     }
 
-    public void refreshStatus() {
-
+    public String getEtat() {
+        return etat;
     }
 }
