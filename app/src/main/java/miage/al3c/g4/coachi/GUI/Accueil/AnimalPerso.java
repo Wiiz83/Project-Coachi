@@ -239,7 +239,7 @@ public class AnimalPerso extends AppCompatActivity {
                 break;
             case "Soigner":
                 controlleurScene.ShowAnimal(false);
-                waitForBonus(extras, animal.getNom() + " a était remis à neuf par le vétérinaire.");
+                waitForBonus(extras, animal.getNom() + " a été remis à neuf par le vétérinaire.");
                 break;
             case "Laver":
                 controlleurScene.ShowAnimal(false);

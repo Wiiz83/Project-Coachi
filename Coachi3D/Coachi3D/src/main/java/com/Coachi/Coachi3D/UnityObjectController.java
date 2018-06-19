@@ -5,7 +5,7 @@ import com.unity3d.player.UnityPlayer;
 public abstract class UnityObjectController {
     private String UNITY_COMPONENT = "";
 
-    UnityObjectController (String  GameObjectID ) {
+    UnityObjectController (String GameObjectID ) {
         UNITY_COMPONENT = GameObjectID;
     }
 
